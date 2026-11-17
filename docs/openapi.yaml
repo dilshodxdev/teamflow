@@ -1,0 +1,1272 @@
+openapi: 3.0.3
+info:
+  title: TeamFlow REST API
+  version: 1.0.0
+  description:
+    Bitta jamoa uchun REST shartnomasi. Barcha javoblar data/error envelope. POST 201, PATCH/GET
+    200, DELETE/logout 204. Mutatsiyalarda application/json va kutilgan Origin talab qilinadi. Pending
+    faqat me/logout; team o'qish manager/member uchun. Noma'lum input maydonlar rad etiladi. Sanalar YYYY-MM-DD,
+    overdue Asia/Tashkent bo'yicha. Sessiya va parol hashlari hech qachon javobda berilmaydi.
+servers:
+  - url: http://localhost:4000
+    description: Development API; frontend 5173 /api proxy orqali foydalanadi
+security:
+  - sessionCookie: []
+paths:
+  /api/health:
+    get:
+      operationId: health
+      summary: Server salomatligi
+      responses:
+        "200":
+          description: Muvaffaqiyat
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HealthResponse"
+        "500":
+          $ref: "#/components/responses/Error500"
+      security: []
+  /api/auth/register:
+    post:
+      operationId: register
+      summary: Ro'yxatdan o'tish; pending hisob
+      responses:
+        "201":
+          description: Muvaffaqiyat
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AuthUserResponse"
+        "400":
+          $ref: "#/components/responses/Error400"
+        "403":
+          $ref: "#/components/responses/Error403"
+        "409":
+          $ref: "#/components/responses/Error409"
+        "500":
+          $ref: "#/components/responses/Error500"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RegisterInput"
+      security: []
+      description: Sessiya cookie o'rnatiladi. Email mos bo'lsa ham member avtomatik bog'lanmaydi.
+  /api/auth/login:
+    post:
+      operationId: login
+      summary: Hisobga kirish
+      responses:
+        "201":
+          description: Muvaffaqiyat
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AuthUserResponse"
+        "400":
+          $ref: "#/components/responses/Error400"
+        "401":
+          $ref: "#/components/responses/Error401"
+        "403":
+          $ref: "#/components/responses/Error403"
+        "429":
+          $ref: "#/components/responses/Error429"
+        "500":
+          $ref: "#/components/responses/Error500"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/LoginInput"
+      security: []
+      description: Email normalizatsiya qilinadi. teamflow_session cookie o'rnatiladi.
+  /api/auth/me:
+    get:
+      operationId: me
+      summary: Joriy hisob va jonli a'zolik
+      responses:
+        "200":
+          description: Muvaffaqiyat
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AuthUserResponse"
+        "401":
+          $ref: "#/components/responses/Error401"
+        "500":
+          $ref: "#/components/responses/Error500"
+  /api/auth/logout:
+    post:
+      operationId: logout
+      summary: Sessiyani bekor qilish
+      responses:
+        "204":
+          description: Muvaffaqiyat; javob tanasi yo'q
+        "400":
+          $ref: "#/components/responses/Error400"
+        "401":
+          $ref: "#/components/responses/Error401"
+        "403":
+          $ref: "#/components/responses/Error403"
+        "500":
+          $ref: "#/components/responses/Error500"
+      description: "Content-Type: application/json yuboring; {} body mumkin. Cookie tozalanadi."
+  /api/projects:
+    get:
+      operationId: listProjects
+      summary: Project ro'yxati
+      responses:
+        "200":
+          description: Muvaffaqiyat
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProjectListResponse"
+        "400":
+          $ref: "#/components/responses/Error400"
+        "401":
+          $ref: "#/components/responses/Error401"
+        "403":
+          $ref: "#/components/responses/Error403"
+        "500":
+          $ref: "#/components/responses/Error500"
+    post:
+      operationId: createProject
+      summary: Project yaratish
+      responses:
+        "201":
+          description: Muvaffaqiyat
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProjectResponse"
+        "400":
+          $ref: "#/components/responses/Error400"
+        "401":
+          $ref: "#/components/responses/Error401"
+        "403":
+          $ref: "#/components/responses/Error403"
+        "404":
+          $ref: "#/components/responses/Error404"
+        "409":
+          $ref: "#/components/responses/Error409"
+        "500":
+          $ref: "#/components/responses/Error500"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ProjectInput"
+      description: Faqat manager yozadi. Progress va status server hisoblaydi. Sana startDate <= dueDate.
+  /api/projects/{id}:
+    parameters:
+      - $ref: "#/components/parameters/Id"
+    patch:
+      operationId: updateProject
+      summary: Projectni qisman tahrirlash
+      responses:
+        "200":
+          description: Muvaffaqiyat
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProjectResponse"
+        "400":
+          $ref: "#/components/responses/Error400"
+        "401":
+          $ref: "#/components/responses/Error401"
+        "403":
+          $ref: "#/components/responses/Error403"
+        "404":
+          $ref: "#/components/responses/Error404"
+        "409":
+          $ref: "#/components/responses/Error409"
+        "500":
+          $ref: "#/components/responses/Error500"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ProjectPatch"
+      description:
+        Faqat manager yozadi. Progress va status server hisoblaydi. Sana startDate <= dueDate.
+        Kamida bitta maydon; noma'lum maydon rad etiladi.
+    delete:
+      operationId: deleteProject
+      summary: Projectni o'chirish
+      responses:
+        "204":
+          description: Muvaffaqiyat; javob tanasi yo'q
+        "400":
+          $ref: "#/components/responses/Error400"
+        "401":
+          $ref: "#/components/responses/Error401"
+        "403":
+          $ref: "#/components/responses/Error403"
+        "404":
+          $ref: "#/components/responses/Error404"
+        "409":
+          $ref: "#/components/responses/Error409"
+        "500":
+          $ref: "#/components/responses/Error500"
+      description:
+        "Faqat manager. Content-Type: application/json header talab qilinadi; body shart emas.
+        Task va risklar cascade qilinadi."
+    get:
+      operationId: getProject
+      summary: Projectni olish
+      responses:
+        "200":
+          description: Muvaffaqiyat
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProjectResponse"
+        "400":
+          $ref: "#/components/responses/Error400"
+        "401":
+          $ref: "#/components/responses/Error401"
+        "403":
+          $ref: "#/components/responses/Error403"
+        "404":
+          $ref: "#/components/responses/Error404"
+        "500":
+          $ref: "#/components/responses/Error500"
+  /api/tasks:
+    get:
+      operationId: listTasks
+      summary: Task ro'yxati
+      responses:
+        "200":
+          description: Muvaffaqiyat
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TaskListResponse"
+        "400":
+          $ref: "#/components/responses/Error400"
+        "401":
+          $ref: "#/components/responses/Error401"
+        "403":
+          $ref: "#/components/responses/Error403"
+        "500":
+          $ref: "#/components/responses/Error500"
+      parameters:
+        - name: projectId
+          in: query
+          required: false
+          schema:
+            type: string
+            format: uuid
+          description: Loyiha bo'yicha ixtiyoriy filtr
+    post:
+      operationId: createTask
+      summary: Task yaratish
+      responses:
+        "201":
+          description: Muvaffaqiyat
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TaskResponse"
+        "400":
+          $ref: "#/components/responses/Error400"
+        "401":
+          $ref: "#/components/responses/Error401"
+        "403":
+          $ref: "#/components/responses/Error403"
+        "404":
+          $ref: "#/components/responses/Error404"
+        "409":
+          $ref: "#/components/responses/Error409"
+        "500":
+          $ref: "#/components/responses/Error500"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/TaskInput"
+      description:
+        Manager CRUD; member faqat o'z memberIdiga task yaratadi va o'z taskini tahrirlaydi.
+        Member delete qilmaydi. Sana startDate <= dueDate.
+  /api/tasks/{id}:
+    parameters:
+      - $ref: "#/components/parameters/Id"
+    patch:
+      operationId: updateTask
+      summary: Taskni qisman tahrirlash
+      responses:
+        "200":
+          description: Muvaffaqiyat
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TaskResponse"
+        "400":
+          $ref: "#/components/responses/Error400"
+        "401":
+          $ref: "#/components/responses/Error401"
+        "403":
+          $ref: "#/components/responses/Error403"
+        "404":
+          $ref: "#/components/responses/Error404"
+        "409":
+          $ref: "#/components/responses/Error409"
+        "500":
+          $ref: "#/components/responses/Error500"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/TaskPatch"
+      description:
+        Manager CRUD; member faqat o'z memberIdiga task yaratadi va o'z taskini tahrirlaydi.
+        Member delete qilmaydi. Sana startDate <= dueDate. Kamida bitta maydon; noma'lum maydon rad etiladi.
+    delete:
+      operationId: deleteTask
+      summary: Taskni o'chirish
+      responses:
+        "204":
+          description: Muvaffaqiyat; javob tanasi yo'q
+        "400":
+          $ref: "#/components/responses/Error400"
+        "401":
+          $ref: "#/components/responses/Error401"
+        "403":
+          $ref: "#/components/responses/Error403"
+        "404":
+          $ref: "#/components/responses/Error404"
+        "409":
+          $ref: "#/components/responses/Error409"
+        "500":
+          $ref: "#/components/responses/Error500"
+      description: "Faqat manager. Content-Type: application/json header talab qilinadi; body shart emas. "
+    get:
+      operationId: getTask
+      summary: Taskni olish
+      responses:
+        "200":
+          description: Muvaffaqiyat
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TaskResponse"
+        "400":
+          $ref: "#/components/responses/Error400"
+        "401":
+          $ref: "#/components/responses/Error401"
+        "403":
+          $ref: "#/components/responses/Error403"
+        "404":
+          $ref: "#/components/responses/Error404"
+        "500":
+          $ref: "#/components/responses/Error500"
+  /api/members:
+    get:
+      operationId: listMembers
+      summary: Member ro'yxati
+      responses:
+        "200":
+          description: Muvaffaqiyat
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/MemberListResponse"
+        "400":
+          $ref: "#/components/responses/Error400"
+        "401":
+          $ref: "#/components/responses/Error401"
+        "403":
+          $ref: "#/components/responses/Error403"
+        "500":
+          $ref: "#/components/responses/Error500"
+    post:
+      operationId: createMember
+      summary: Member yaratish
+      responses:
+        "201":
+          description: Muvaffaqiyat
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/MemberResponse"
+        "400":
+          $ref: "#/components/responses/Error400"
+        "401":
+          $ref: "#/components/responses/Error401"
+        "403":
+          $ref: "#/components/responses/Error403"
+        "404":
+          $ref: "#/components/responses/Error404"
+        "409":
+          $ref: "#/components/responses/Error409"
+        "500":
+          $ref: "#/components/responses/Error500"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/MemberInput"
+      description:
+        Faqat manager yozadi. accessRole inputda qabul qilinmaydi. Aniq create/PATCH matching
+        registered emailni tasdiqlab bog'laydi; avtomatik email ownership verification yo'q.
+  /api/members/{id}:
+    parameters:
+      - $ref: "#/components/parameters/Id"
+    patch:
+      operationId: updateMember
+      summary: Memberni qisman tahrirlash
+      responses:
+        "200":
+          description: Muvaffaqiyat
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/MemberResponse"
+        "400":
+          $ref: "#/components/responses/Error400"
+        "401":
+          $ref: "#/components/responses/Error401"
+        "403":
+          $ref: "#/components/responses/Error403"
+        "404":
+          $ref: "#/components/responses/Error404"
+        "409":
+          $ref: "#/components/responses/Error409"
+        "500":
+          $ref: "#/components/responses/Error500"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/MemberPatch"
+      description:
+        Faqat manager yozadi. accessRole inputda qabul qilinmaydi. Aniq create/PATCH matching
+        registered emailni tasdiqlab bog'laydi; avtomatik email ownership verification yo'q. Kamida bitta
+        maydon; noma'lum maydon rad etiladi.
+    delete:
+      operationId: deleteMember
+      summary: Memberni o'chirish
+      responses:
+        "204":
+          description: Muvaffaqiyat; javob tanasi yo'q
+        "400":
+          $ref: "#/components/responses/Error400"
+        "401":
+          $ref: "#/components/responses/Error401"
+        "403":
+          $ref: "#/components/responses/Error403"
+        "404":
+          $ref: "#/components/responses/Error404"
+        "409":
+          $ref: "#/components/responses/Error409"
+        "500":
+          $ref: "#/components/responses/Error500"
+      description:
+        "Faqat manager. Content-Type: application/json header talab qilinadi; body shart emas.
+        Oddiy member o'chirilsa task/risk mas'ulsiz qoladi, sessiyalari bekor bo'ladi; primary manager
+        himoyalangan."
+  /api/risks:
+    get:
+      operationId: listRisks
+      summary: Risk ro'yxati
+      responses:
+        "200":
+          description: Muvaffaqiyat
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RiskListResponse"
+        "400":
+          $ref: "#/components/responses/Error400"
+        "401":
+          $ref: "#/components/responses/Error401"
+        "403":
+          $ref: "#/components/responses/Error403"
+        "500":
+          $ref: "#/components/responses/Error500"
+      parameters:
+        - name: projectId
+          in: query
+          required: false
+          schema:
+            type: string
+            format: uuid
+          description: Loyiha bo'yicha ixtiyoriy filtr
+    post:
+      operationId: createRisk
+      summary: Risk yaratish
+      responses:
+        "201":
+          description: Muvaffaqiyat
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RiskResponse"
+        "400":
+          $ref: "#/components/responses/Error400"
+        "401":
+          $ref: "#/components/responses/Error401"
+        "403":
+          $ref: "#/components/responses/Error403"
+        "404":
+          $ref: "#/components/responses/Error404"
+        "409":
+          $ref: "#/components/responses/Error409"
+        "500":
+          $ref: "#/components/responses/Error500"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RiskInput"
+      description:
+        Faqat manager yozadi. Score=probability*impact; 1-5 low, 6-12 medium, 13-25 high. Computed
+        maydonlar inputda rad qilinadi.
+  /api/risks/{id}:
+    parameters:
+      - $ref: "#/components/parameters/Id"
+    patch:
+      operationId: updateRisk
+      summary: Riskni qisman tahrirlash
+      responses:
+        "200":
+          description: Muvaffaqiyat
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RiskResponse"
+        "400":
+          $ref: "#/components/responses/Error400"
+        "401":
+          $ref: "#/components/responses/Error401"
+        "403":
+          $ref: "#/components/responses/Error403"
+        "404":
+          $ref: "#/components/responses/Error404"
+        "409":
+          $ref: "#/components/responses/Error409"
+        "500":
+          $ref: "#/components/responses/Error500"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RiskPatch"
+      description:
+        Faqat manager yozadi. Score=probability*impact; 1-5 low, 6-12 medium, 13-25 high. Computed
+        maydonlar inputda rad qilinadi. Kamida bitta maydon; noma'lum maydon rad etiladi.
+    delete:
+      operationId: deleteRisk
+      summary: Riskni o'chirish
+      responses:
+        "204":
+          description: Muvaffaqiyat; javob tanasi yo'q
+        "400":
+          $ref: "#/components/responses/Error400"
+        "401":
+          $ref: "#/components/responses/Error401"
+        "403":
+          $ref: "#/components/responses/Error403"
+        "404":
+          $ref: "#/components/responses/Error404"
+        "409":
+          $ref: "#/components/responses/Error409"
+        "500":
+          $ref: "#/components/responses/Error500"
+      description: "Faqat manager. Content-Type: application/json header talab qilinadi; body shart emas. "
+components:
+  securitySchemes:
+    sessionCookie:
+      type: apiKey
+      in: cookie
+      name: teamflow_session
+      description:
+        HttpOnly; SameSite=Lax; Path=/; muddatli; HTTPS productionda Secure. DBda tokenning
+        faqat hashi saqlanadi.
+  parameters:
+    Id:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+  responses:
+    Error400:
+      description: Noto'g'ri ma'lumot yoki JSON/content type
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+    Error401:
+      description: Sessiya yoki login yaroqsiz
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+    Error403:
+      description: Ruxsat yoki Origin cheklovi
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+    Error404:
+      description: Resurs topilmadi
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+    Error409:
+      description: Email yoki himoyalangan identifikatsiya ziddiyati
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+    Error429:
+      description: Login urinishlari chegarasi
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+    Error500:
+      description: Ichki xato; maxfiy tafsilotlar berilmaydi
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+  schemas:
+    Error:
+      type: object
+      additionalProperties: false
+      required:
+        - error
+      properties:
+        error:
+          type: object
+          additionalProperties: false
+          required:
+            - code
+            - message
+          properties:
+            code:
+              type: string
+              enum:
+                - VALIDATION_ERROR
+                - UNAUTHORIZED
+                - FORBIDDEN
+                - NOT_FOUND
+                - CONFLICT
+                - RATE_LIMITED
+                - INTERNAL_ERROR
+            message:
+              type: string
+              minLength: 1
+              maxLength: 5000
+    RegisterInput:
+      type: object
+      additionalProperties: false
+      required:
+        - fullName
+        - email
+        - password
+      properties:
+        fullName:
+          type: string
+          minLength: 1
+          maxLength: 200
+        email:
+          type: string
+          format: email
+          maxLength: 254
+        password:
+          type: string
+          minLength: 8
+          maxLength: 72
+          description: At most 72 UTF-8 bytes; register requires at least eight characters.
+    LoginInput:
+      type: object
+      additionalProperties: false
+      required:
+        - email
+        - password
+      properties:
+        email:
+          type: string
+          format: email
+          maxLength: 254
+        password:
+          type: string
+          minLength: 1
+          maxLength: 72
+          description: At most 72 UTF-8 bytes; register requires at least eight characters.
+    AuthUser:
+      type: object
+      additionalProperties: false
+      required:
+        - id
+        - fullName
+        - email
+        - role
+        - memberId
+      properties:
+        id:
+          type: string
+          format: uuid
+        fullName:
+          type: string
+          minLength: 1
+          maxLength: 5000
+        email:
+          type: string
+          format: email
+          maxLength: 254
+        role:
+          type: string
+          enum:
+            - manager
+            - member
+            - pending
+        memberId:
+          type: string
+          format: uuid
+          nullable: true
+    Health:
+      type: object
+      additionalProperties: false
+      required:
+        - status
+      properties:
+        status:
+          type: string
+          enum:
+            - ok
+    ProjectInput:
+      type: object
+      additionalProperties: false
+      required:
+        - name
+        - description
+        - startDate
+        - dueDate
+      properties:
+        name:
+          type: string
+          minLength: 1
+          maxLength: 200
+        description:
+          type: string
+          minLength: 1
+          maxLength: 5000
+        startDate:
+          type: string
+          format: date
+          pattern: ^\d{4}-\d{2}-\d{2}$
+        dueDate:
+          type: string
+          format: date
+          pattern: ^\d{4}-\d{2}-\d{2}$
+    TaskInput:
+      type: object
+      additionalProperties: false
+      required:
+        - projectId
+        - title
+        - description
+        - assigneeId
+        - startDate
+        - dueDate
+        - priority
+        - status
+      properties:
+        projectId:
+          type: string
+          format: uuid
+        title:
+          type: string
+          minLength: 1
+          maxLength: 200
+        description:
+          type: string
+          minLength: 1
+          maxLength: 5000
+        assigneeId:
+          type: string
+          format: uuid
+          nullable: true
+        startDate:
+          type: string
+          format: date
+          pattern: ^\d{4}-\d{2}-\d{2}$
+        dueDate:
+          type: string
+          format: date
+          pattern: ^\d{4}-\d{2}-\d{2}$
+        priority:
+          type: string
+          enum:
+            - low
+            - medium
+            - high
+        status:
+          type: string
+          enum:
+            - todo
+            - in_progress
+            - done
+    MemberInput:
+      type: object
+      additionalProperties: false
+      required:
+        - fullName
+        - email
+        - role
+      properties:
+        fullName:
+          type: string
+          minLength: 1
+          maxLength: 200
+        email:
+          type: string
+          format: email
+          maxLength: 254
+        role:
+          type: string
+          minLength: 1
+          maxLength: 200
+    RiskInput:
+      type: object
+      additionalProperties: false
+      required:
+        - projectId
+        - title
+        - probability
+        - impact
+        - mitigation
+        - assigneeId
+        - status
+      properties:
+        projectId:
+          type: string
+          format: uuid
+        title:
+          type: string
+          minLength: 1
+          maxLength: 200
+        probability:
+          type: integer
+          minimum: 1
+          maximum: 5
+        impact:
+          type: integer
+          minimum: 1
+          maximum: 5
+        mitigation:
+          type: string
+          minLength: 1
+          maxLength: 5000
+        assigneeId:
+          type: string
+          format: uuid
+          nullable: true
+        status:
+          type: string
+          enum:
+            - active
+            - monitoring
+            - resolved
+    Project:
+      type: object
+      additionalProperties: false
+      required:
+        - id
+        - name
+        - description
+        - startDate
+        - dueDate
+        - status
+        - progress
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+          minLength: 1
+          maxLength: 200
+        description:
+          type: string
+          minLength: 1
+          maxLength: 5000
+        startDate:
+          type: string
+          format: date
+          pattern: ^\d{4}-\d{2}-\d{2}$
+        dueDate:
+          type: string
+          format: date
+          pattern: ^\d{4}-\d{2}-\d{2}$
+        status:
+          type: string
+          enum:
+            - planned
+            - in_progress
+            - done
+        progress:
+          type: integer
+          minimum: 0
+          maximum: 100
+    ProjectPatch:
+      type: object
+      additionalProperties: false
+      required: []
+      properties:
+        name:
+          type: string
+          minLength: 1
+          maxLength: 200
+        description:
+          type: string
+          minLength: 1
+          maxLength: 5000
+        startDate:
+          type: string
+          format: date
+          pattern: ^\d{4}-\d{2}-\d{2}$
+        dueDate:
+          type: string
+          format: date
+          pattern: ^\d{4}-\d{2}-\d{2}$
+      minProperties: 1
+    Task:
+      type: object
+      additionalProperties: false
+      required:
+        - id
+        - projectId
+        - title
+        - description
+        - assigneeId
+        - startDate
+        - dueDate
+        - priority
+        - status
+      properties:
+        id:
+          type: string
+          format: uuid
+        projectId:
+          type: string
+          format: uuid
+        title:
+          type: string
+          minLength: 1
+          maxLength: 200
+        description:
+          type: string
+          minLength: 1
+          maxLength: 5000
+        assigneeId:
+          type: string
+          format: uuid
+          nullable: true
+        startDate:
+          type: string
+          format: date
+          pattern: ^\d{4}-\d{2}-\d{2}$
+        dueDate:
+          type: string
+          format: date
+          pattern: ^\d{4}-\d{2}-\d{2}$
+        priority:
+          type: string
+          enum:
+            - low
+            - medium
+            - high
+        status:
+          type: string
+          enum:
+            - todo
+            - in_progress
+            - done
+    TaskPatch:
+      type: object
+      additionalProperties: false
+      required: []
+      properties:
+        projectId:
+          type: string
+          format: uuid
+        title:
+          type: string
+          minLength: 1
+          maxLength: 200
+        description:
+          type: string
+          minLength: 1
+          maxLength: 5000
+        assigneeId:
+          type: string
+          format: uuid
+          nullable: true
+        startDate:
+          type: string
+          format: date
+          pattern: ^\d{4}-\d{2}-\d{2}$
+        dueDate:
+          type: string
+          format: date
+          pattern: ^\d{4}-\d{2}-\d{2}$
+        priority:
+          type: string
+          enum:
+            - low
+            - medium
+            - high
+        status:
+          type: string
+          enum:
+            - todo
+            - in_progress
+            - done
+      minProperties: 1
+    Member:
+      type: object
+      additionalProperties: false
+      required:
+        - id
+        - fullName
+        - email
+        - role
+        - accessRole
+      properties:
+        id:
+          type: string
+          format: uuid
+        fullName:
+          type: string
+          minLength: 1
+          maxLength: 200
+        email:
+          type: string
+          format: email
+          maxLength: 254
+        role:
+          type: string
+          minLength: 1
+          maxLength: 200
+        accessRole:
+          type: string
+          enum:
+            - manager
+            - member
+    MemberPatch:
+      type: object
+      additionalProperties: false
+      required: []
+      properties:
+        fullName:
+          type: string
+          minLength: 1
+          maxLength: 200
+        email:
+          type: string
+          format: email
+          maxLength: 254
+        role:
+          type: string
+          minLength: 1
+          maxLength: 200
+      minProperties: 1
+    Risk:
+      type: object
+      additionalProperties: false
+      required:
+        - id
+        - projectId
+        - title
+        - probability
+        - impact
+        - mitigation
+        - assigneeId
+        - status
+        - score
+        - level
+      properties:
+        id:
+          type: string
+          format: uuid
+        projectId:
+          type: string
+          format: uuid
+        title:
+          type: string
+          minLength: 1
+          maxLength: 200
+        probability:
+          type: integer
+          minimum: 1
+          maximum: 5
+        impact:
+          type: integer
+          minimum: 1
+          maximum: 5
+        mitigation:
+          type: string
+          minLength: 1
+          maxLength: 5000
+        assigneeId:
+          type: string
+          format: uuid
+          nullable: true
+        status:
+          type: string
+          enum:
+            - active
+            - monitoring
+            - resolved
+        score:
+          type: integer
+          minimum: 1
+          maximum: 25
+        level:
+          type: string
+          enum:
+            - low
+            - medium
+            - high
+    RiskPatch:
+      type: object
+      additionalProperties: false
+      required: []
+      properties:
+        projectId:
+          type: string
+          format: uuid
+        title:
+          type: string
+          minLength: 1
+          maxLength: 200
+        probability:
+          type: integer
+          minimum: 1
+          maximum: 5
+        impact:
+          type: integer
+          minimum: 1
+          maximum: 5
+        mitigation:
+          type: string
+          minLength: 1
+          maxLength: 5000
+        assigneeId:
+          type: string
+          format: uuid
+          nullable: true
+        status:
+          type: string
+          enum:
+            - active
+            - monitoring
+            - resolved
+      minProperties: 1
+    AuthUserResponse:
+      type: object
+      additionalProperties: false
+      required:
+        - data
+      properties:
+        data:
+          $ref: "#/components/schemas/AuthUser"
+    HealthResponse:
+      type: object
+      additionalProperties: false
+      required:
+        - data
+      properties:
+        data:
+          $ref: "#/components/schemas/Health"
+    ProjectResponse:
+      type: object
+      additionalProperties: false
+      required:
+        - data
+      properties:
+        data:
+          $ref: "#/components/schemas/Project"
+    ProjectListResponse:
+      type: object
+      additionalProperties: false
+      required:
+        - data
+      properties:
+        data:
+          type: array
+          items:
+            $ref: "#/components/schemas/Project"
+    TaskResponse:
+      type: object
+      additionalProperties: false
+      required:
+        - data
+      properties:
+        data:
+          $ref: "#/components/schemas/Task"
+    TaskListResponse:
+      type: object
+      additionalProperties: false
+      required:
+        - data
+      properties:
+        data:
+          type: array
+          items:
+            $ref: "#/components/schemas/Task"
+    MemberResponse:
+      type: object
+      additionalProperties: false
+      required:
+        - data
+      properties:
+        data:
+          $ref: "#/components/schemas/Member"
+    MemberListResponse:
+      type: object
+      additionalProperties: false
+      required:
+        - data
+      properties:
+        data:
+          type: array
+          items:
+            $ref: "#/components/schemas/Member"
+    RiskResponse:
+      type: object
+      additionalProperties: false
+      required:
+        - data
+      properties:
+        data:
+          $ref: "#/components/schemas/Risk"
+    RiskListResponse:
+      type: object
+      additionalProperties: false
+      required:
+        - data
+      properties:
+        data:
+          type: array
+          items:
+            $ref: "#/components/schemas/Risk"

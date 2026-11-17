@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+
+<html lang="uz"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"surface-dim":"#d5d8f9","surface-container-highest":"#dee0ff","surface-container-lowest":"#ffffff","on-primary-fixed":"#1a0063","on-tertiary-fixed-variant":"#005321","on-primary-fixed-variant":"#4400d9","on-secondary":"#ffffff","on-surface":"#161a32","outline":"#797588","on-error":"#ffffff","primary-container":"#6945ff","inverse-surface":"#2b2f48","on-tertiary":"#ffffff","secondary":"#6c45c0","surface-tint":"#5d34f3","inverse-primary":"#c9bfff","secondary-fixed":"#eaddff","primary-fixed-dim":"#c9bfff","on-primary-container":"#efe9ff","secondary-fixed-dim":"#d1bcff","error":"#ba1a1a","on-secondary-fixed-variant":"#5429a7","secondary-container":"#a67ffd","surface-container-high":"#e5e6ff","surface-variant":"#dee0ff","tertiary":"#005f28","background":"#fbf8ff","primary-fixed":"#e5deff","surface-bright":"#fbf8ff","on-primary":"#ffffff","surface-container":"#edecff","on-secondary-container":"#3a008b","on-tertiary-fixed":"#002109","primary":"#501fe7","on-error-container":"#93000a","tertiary-fixed-dim":"#4ae176","tertiary-fixed":"#6bff8f","inverse-on-surface":"#f0efff","on-surface-variant":"#484556","surface":"#fbf8ff","error-container":"#ffdad6","tertiary-container":"#007b35","on-secondary-fixed":"#24005b","outline-variant":"#c9c4d9","on-tertiary-container":"#aaffb4","surface-container-low":"#f4f2ff","on-background":"#161a32"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-lg":"1.25rem","space-xl":"1.75rem","gutter":"1.25rem","space-xs":"0.25rem","space-2xl":"2.25rem","margin":"1.5rem","space-md":"0.875rem","space-sm":"0.5rem"},"fontFamily":{"body-sm":["Plus Jakarta Sans"],"label-lg":["Plus Jakarta Sans"],"label-sm":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"label-md":["Plus Jakarta Sans"],"display-md":["Plus Jakarta Sans"],"body-lg":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"display-lg":["Plus Jakarta Sans"]},"fontSize":{"body-sm":["12px",{"lineHeight":"16px","fontWeight":"400"}],"label-lg":["13px",{"lineHeight":"18px","letterSpacing":"0.01em","fontWeight":"600"}],"label-sm":["10px",{"lineHeight":"12px","fontWeight":"500"}],"headline-md":["18px",{"lineHeight":"24px","letterSpacing":"-0.005em","fontWeight":"600"}],"body-md":["13px",{"lineHeight":"18px","fontWeight":"500"}],"label-md":["11px",{"lineHeight":"14px","letterSpacing":"0.02em","fontWeight":"600"}],"display-md":["26px",{"lineHeight":"34px","letterSpacing":"-0.015em","fontWeight":"700"}],"body-lg":["15px",{"lineHeight":"22px","fontWeight":"500"}],"headline-lg":["22px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"700"}],"display-lg":["32px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"700"}]}}}}</script></head><body class="bg-surface font-body-md text-on-surface antialiased min-h-screen"><aside class="fixed left-0 top-0 h-screen w-64 bg-surface-container-lowest shadow-[0_10px_30px_-5px_rgba(105,69,255,0.04),0_4px_12px_0_rgba(17,21,45,0.02)] z-50 flex flex-col justify-between p-space-md"><div class="flex flex-col gap-space-lg"><div class="flex items-center gap-space-sm px-space-sm py-space-xs"><img alt="TeamFlow Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ALJJyrD-uXYbTRfirP8ZyhmkdRK31Z9Vn2xKcjiNFy7WZglPoC2RDEqOd5azxr6QrIeWKdKGwOHP3LHtakTVW5rwPWV1xO-LrXbbd81eU8LOO8UAPJNlgC1Ztw2X0frQCylMH6X7dlZp59c2JV_YvbNkIXQ3VvYB3qlckeCgKvBHLtfl61noj2ulKYc6dzVSfuvZ6u-dnIrfKfisEAEoWqM7FuE8z7YhJjNTQByhiNDyP7ta"/><span class="font-headline-lg text-headline-lg tracking-tight text-on-surface">TeamFlow</span></div><nav class="flex flex-col gap-space-xs" data-active-classes="bg-surface-container text-primary font-headline-md"><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[20px]">grid_view</span><span>Dashboard</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="loyihalar" href="#"><span class="material-symbols-outlined text-[20px]">folder</span><span>Loyihalar</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="vazifalar" href="#"><span class="material-symbols-outlined text-[20px]">check_box</span><span>Vazifalar</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="kalendar" href="#"><span class="material-symbols-outlined text-[20px]">calendar_today</span><span>Kalendar</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="jamoa" href="#"><span class="material-symbols-outlined text-[20px]">group</span><span>Jamoa</span></a><a aria-current="page" class="flex items-center gap-space-sm px-space-md py-space-sm rounded-xl transition-all bg-surface-container text-primary font-headline-md" data-path="risklar" href="#"><span class="material-symbols-outlined text-[20px]">warning</span><span>Risklar</span></a></nav></div><div class="p-space-sm rounded-xl bg-surface-container-low flex items-center justify-between gap-space-xs"><div class="flex items-center gap-space-sm overflow-hidden"><div class="w-8 h-8 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-label-md text-label-md shrink-0">PM</div><div class="flex flex-col min-w-0"><span class="font-label-lg text-label-lg text-on-surface truncate">Project Manager</span><span class="font-label-sm text-label-sm text-on-surface-variant truncate">Jamoa a'zosi</span></div></div><span class="material-symbols-outlined text-outline text-[18px] shrink-0">unfold_more</span></div></aside><div class="pl-64 flex flex-col min-h-screen"><header class="fixed top-0 left-64 right-0 h-16 bg-surface-container-lowest/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-end px-margin"><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-sm"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEBBrn5p-mDhRRHke-OGyLhywrsxDMbr6O0KoIbysLgPoH5Xq0GKD5_UWLt6XHPhjh0_c3ZzVlrHnzKs1X9w4NZpowy2zHL3sJ5rY80sUcb959SK1pQYpftxxvfRBNa5drkFdWJYn_3BfaThsmhIfLWapoYHjrvtHP2QRu7YUOhdrK099pbT7sro3LtoPAW8lIMgjHn5ATOkUuglo2yCtrp8GSS6f5Q7gYPtd81EU"/><div class="flex flex-col"><span class="font-label-lg text-label-lg text-on-surface">Zilola Rahimova</span><span class="font-label-sm text-label-sm text-on-surface-variant">Project Manager</span></div></div><a class="flex items-center gap-space-xs px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="logout" href="#"><span class="material-symbols-outlined text-[18px]">logout</span><span>Chiqish</span></a></div></header><main class="flex-1 pt-16 bg-surface px-margin py-margin"><div class="flex flex-col w-full gap-space-lg">
+<!-- Header Context & Primary Action -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-md bg-surface-container-lowest p-space-lg rounded-[22px] shadow-[0_10px_30px_-5px_rgba(105,69,255,0.04),0_4px_12px_0_rgba(17,21,45,0.02)]">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-space-sm">
+<span class="p-2 rounded-xl bg-surface-container text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[22px]">warning</span>
+</span>
+<h1 class="font-display-md text-display-md text-on-surface tracking-tight">Risklar</h1>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant pl-1">Loyihalar xavf-xatarlari va bartaraf etish rejalari</p>
+</div>
+<div class="flex items-center gap-space-md self-start md:self-auto">
+<div class="hidden sm:flex items-center -space-x-2 bg-surface-container-low px-3 py-1.5 rounded-full">
+<img class="w-7 h-7 rounded-full object-cover shadow-sm bg-surface-dim" data-alt="Uzbek female product designer smiling, natural studio portrait on clean soft lavender backdrop" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhvUcUVSAraHxW-1le9pAjmravJzK_D-sN9_PmPP66LxVJxPPZgNNBmdnSpx_3ogC8Z-qd0YHJjJqtr_neHb_mXa8WEDulzKogvbAP_dKw6_peyQQSFA5Jqtpj1zuT7qFMe8W3Sa-E-0UTRFj8QGlOLSWa2eeK59TJGiYdpjkLggoxN-jJlne5MpdxaVenuP3lg9Y0nzXrktyqx-7q_FrwBcTVJQ6W0Om6-UmURwE"/>
+<img class="w-7 h-7 rounded-full object-cover shadow-sm bg-surface-dim" data-alt="Young male frontend engineer wearing glasses, friendly expression in professional creative agency setup" src="https://lh3.googleusercontent.com/aida-public/AB6AXuArVV0vcBS3_dAzcwRUDJmufHu1q3oJGYARF4Mhkw1_KlOqdasVzyiXaIiS89UY4SNmSB3AUqtsIABTJ7gEeG1nauQm8-s9JmI8FPjv45VUCT1bXNTWjLMEamCSh9p0XbuT4qstMkgwzU8t0jZ6wmbwdLC1ti5fb-ea5_1U-7nZniYlwdUq_RB4-bW5KtttT1OxROloJjxN6z9CM9Df2zFebdKA5g_u49uewQ9Zz0I"/>
+<img class="w-7 h-7 rounded-full object-cover shadow-sm bg-surface-dim" data-alt="Senior tech lead with neat beard, focused and smiling softly, modern software office ambient lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCAln-WklyVUuw6ZhWP0LXT6di8iBFeuMB59zcb8NXDarnh2O9xvoKpu4m4Ac2eo73ENGte26h1hnOaUIRG9J_pKLeFa45x5LShyUk6SG_Pap6RP1BErBxoR2cNr0brh_qECmYYCNik3mU6kc5wiY4UDmC9wZd72hJpX6VlJXw46yI2V_Y-mfzInAYutKDxzN5ox_80ZBZIAZRAHPY64tOeP62GaomA4vJBUfNLcE"/>
+<span class="w-7 h-7 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm flex items-center justify-center shadow-sm">5+</span>
+</div>
+<button class="group flex items-center gap-space-xs px-space-lg py-space-sm rounded-xl bg-primary-container text-on-primary font-label-lg text-label-lg shadow-[0_8px_20px_-4px_rgba(105,69,255,0.45)] hover:shadow-[0_12px_24px_-4px_rgba(105,69,255,0.6)] hover:bg-primary transition-all duration-200 active:scale-95 cursor-pointer" id="open-risk-modal" type="button">
+<span class="material-symbols-outlined text-[20px] transition-transform duration-200 group-hover:rotate-90">add</span>
+<span>Yangi risk</span>
+</button>
+</div>
+</div>
+<!-- Top 3 Metric Insight Cards -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-gutter">
+<!-- Yuqori Risklar -->
+<div class="flex items-center justify-between p-space-lg bg-surface-container-lowest rounded-[22px] shadow-[0_10px_30px_-5px_rgba(105,69,255,0.04),0_4px_12px_0_rgba(17,21,45,0.02)] transition-all hover:-translate-y-0.5">
+<div class="flex flex-col gap-1">
+<span class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant">Kritik xavf</span>
+<span class="font-headline-lg text-headline-lg text-on-surface">Yuqori risklar</span>
+<div class="flex items-baseline gap-space-xs mt-1">
+<span class="font-display-lg text-display-lg text-error">2</span>
+<span class="font-body-md text-body-md text-on-surface-variant">ta loyihada</span>
+</div>
+</div>
+<div class="w-14 h-14 rounded-2xl bg-error-container text-error flex items-center justify-center shadow-[0_8px_18px_-4px_rgba(186,26,26,0.25)]">
+<span class="material-symbols-outlined text-[28px]" style="font-variation-settings: 'FILL' 1;">error</span>
+</div>
+</div>
+<!-- O'rta Risklar -->
+<div class="flex items-center justify-between p-space-lg bg-surface-container-lowest rounded-[22px] shadow-[0_10px_30px_-5px_rgba(105,69,255,0.04),0_4px_12px_0_rgba(17,21,45,0.02)] transition-all hover:-translate-y-0.5">
+<div class="flex flex-col gap-1">
+<span class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant">Nazorat talab</span>
+<span class="font-headline-lg text-headline-lg text-on-surface">O‘rta risklar</span>
+<div class="flex items-baseline gap-space-xs mt-1">
+<span class="font-display-lg text-display-lg text-secondary">3</span>
+<span class="font-body-md text-body-md text-on-surface-variant">ta ehtimoliy</span>
+</div>
+</div>
+<div class="w-14 h-14 rounded-2xl bg-secondary-fixed text-on-secondary-fixed-variant flex items-center justify-center shadow-[0_8px_18px_-4px_rgba(166,127,253,0.35)]">
+<span class="material-symbols-outlined text-[28px]" style="font-variation-settings: 'FILL' 1;">warning_amber</span>
+</div>
+</div>
+<!-- Past Risklar -->
+<div class="flex items-center justify-between p-space-lg bg-surface-container-lowest rounded-[22px] shadow-[0_10px_30px_-5px_rgba(105,69,255,0.04),0_4px_12px_0_rgba(17,21,45,0.02)] transition-all hover:-translate-y-0.5">
+<div class="flex flex-col gap-1">
+<span class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant">Minimal xavf</span>
+<span class="font-headline-lg text-headline-lg text-on-surface">Past risklar</span>
+<div class="flex items-baseline gap-space-xs mt-1">
+<span class="font-display-lg text-display-lg text-tertiary-container">4</span>
+<span class="font-body-md text-body-md text-on-surface-variant">ta rejalashtirilgan</span>
+</div>
+</div>
+<div class="w-14 h-14 rounded-2xl bg-tertiary-fixed text-on-tertiary-fixed-variant flex items-center justify-center shadow-[0_8px_18px_-4px_rgba(74,225,118,0.35)]">
+<span class="material-symbols-outlined text-[28px]" style="font-variation-settings: 'FILL' 1;">task_alt</span>
+</div>
+</div>
+</div>
+<!-- Risk Matrix Matrix Visual Bar -->
+<div class="bg-surface-container-lowest p-space-lg rounded-[22px] shadow-[0_10px_30px_-5px_rgba(105,69,255,0.04),0_4px_12px_0_rgba(17,21,45,0.02)] flex flex-col md:flex-row md:items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Matritsa ko‘rsatkichi</span>
+<span class="font-headline-md text-headline-md text-on-surface">Ballar shkalasi (Ehtimollik × Ta’sir)</span>
+</div>
+</div>
+<div class="flex flex-wrap items-center gap-space-md">
+<div class="flex items-center gap-space-xs bg-surface-container-low px-3 py-1.5 rounded-full">
+<span class="w-2.5 h-2.5 rounded-full bg-tertiary-fixed-dim"></span>
+<span class="font-label-md text-label-md text-on-surface">1–5: Past ball</span>
+</div>
+<div class="flex items-center gap-space-xs bg-surface-container-low px-3 py-1.5 rounded-full">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary-container"></span>
+<span class="font-label-md text-label-md text-on-surface">6–12: O‘rta ball</span>
+</div>
+<div class="flex items-center gap-space-xs bg-surface-container-low px-3 py-1.5 rounded-full">
+<span class="w-2.5 h-2.5 rounded-full bg-error"></span>
+<span class="font-label-md text-label-md text-on-surface">13–25: Yuqori ball</span>
+</div>
+</div>
+</div>
+<!-- Main Content — Clean Risk Register Table -->
+<div class="bg-surface-container-lowest rounded-[24px] shadow-[0_10px_30px_-5px_rgba(105,69,255,0.04),0_4px_12px_0_rgba(17,21,45,0.02)] overflow-hidden">
+<!-- Table Header Toolbar -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between p-space-lg gap-space-sm bg-surface-container-lowest">
+<div class="flex items-center gap-space-sm">
+<span class="font-headline-md text-headline-md text-on-surface">Ro‘yxatdagi risklar</span>
+<span class="px-2.5 py-0.5 rounded-full bg-surface-container font-label-md text-label-md text-primary">4 ta yozuv</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-outline text-[18px]">search</span>
+<input class="bg-surface-container-low text-on-surface placeholder:text-outline text-body-sm font-body-sm rounded-xl pl-9 pr-3 py-2 outline-none focus:bg-surface-container transition-all w-48 sm:w-60" placeholder="Qidiruv..." type="text"/>
+</div>
+<button class="p-2 rounded-xl bg-surface-container-low text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">filter_list</span>
+</button>
+</div>
+</div>
+<!-- Table Canvas -->
+<div class="w-full overflow-x-auto">
+<table class="w-full text-left min-w-[840px]">
+<thead>
+<tr class="bg-surface-container-low/70 text-on-surface-variant font-label-lg text-label-lg">
+<th class="py-space-md px-space-lg font-semibold">Risk nomi</th>
+<th class="py-space-md px-space-md font-semibold">Loyiha</th>
+<th class="py-space-md px-space-sm text-center font-semibold">Ehtimollik</th>
+<th class="py-space-md px-space-sm text-center font-semibold">Ta’sir</th>
+<th class="py-space-md px-space-md font-semibold">Risk darajasi</th>
+<th class="py-space-md px-space-md font-semibold">Mas’ul</th>
+<th class="py-space-md px-space-md font-semibold">Holat</th>
+<th class="py-space-md px-space-lg text-right font-semibold">Amallar</th>
+</tr>
+</thead>
+<tbody class="divide-y-0 font-body-md text-body-md text-on-surface">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low/60 transition-colors group">
+<td class="py-4 px-space-lg">
+<div class="flex flex-col min-w-0">
+<span class="font-headline-md text-[14px] text-on-surface group-hover:text-primary transition-colors">API integratsiya kechikishi</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Tashqi to‘lov tizimi shlyuzi API hujjati kechikishi</span>
+</div>
+</td>
+<td class="py-4 px-space-md">
+<span class="px-3 py-1 rounded-lg bg-surface-container text-on-surface font-body-sm text-body-sm whitespace-nowrap">
+                E-tijorat platformasi
+              </span>
+</td>
+<td class="py-4 px-space-sm text-center">
+<span class="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-surface-container font-label-md text-label-md font-bold text-on-surface">4</span>
+</td>
+<td class="py-4 px-space-sm text-center">
+<span class="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-surface-container font-label-md text-label-md font-bold text-on-surface">4</span>
+</td>
+<td class="py-4 px-space-md">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-error-container text-error font-label-md text-label-md shadow-[0_6px_14px_-3px_rgba(186,26,26,0.2)]">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+<span>16 • Yuqori</span>
+</div>
+</td>
+<td class="py-4 px-space-md">
+<div class="flex items-center gap-space-xs">
+<div class="w-7 h-7 rounded-full bg-primary text-on-primary font-label-sm text-label-sm flex items-center justify-center shrink-0">
+                  JB
+                </div>
+<span class="font-body-md text-body-md text-on-surface whitespace-nowrap">Jasur B.</span>
+</div>
+</td>
+<td class="py-4 px-space-md">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-error-container/60 text-on-error-container font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+                Faol
+              </span>
+</td>
+<td class="py-4 px-space-lg text-right">
+<div class="inline-flex items-center gap-1">
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-primary transition-all">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:bg-error-container hover:text-error transition-all">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low/60 transition-colors group">
+<td class="py-4 px-space-lg">
+<div class="flex flex-col min-w-0">
+<span class="font-headline-md text-[14px] text-on-surface group-hover:text-primary transition-colors">UI komponentlar tasdiqlanmasligi</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Mijoz tomonidan yangi vizual prototip ko‘rib chiqilishi</span>
+</div>
+</td>
+<td class="py-4 px-space-md">
+<span class="px-3 py-1 rounded-lg bg-surface-container text-on-surface font-body-sm text-body-sm whitespace-nowrap">
+                Mobil ilova qayta dizayni
+              </span>
+</td>
+<td class="py-4 px-space-sm text-center">
+<span class="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-surface-container font-label-md text-label-md font-bold text-on-surface">3</span>
+</td>
+<td class="py-4 px-space-sm text-center">
+<span class="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-surface-container font-label-md text-label-md font-bold text-on-surface">3</span>
+</td>
+<td class="py-4 px-space-md">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant font-label-md text-label-md shadow-[0_6px_14px_-3px_rgba(108,69,192,0.2)]">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span>9 • O‘rta</span>
+</div>
+</td>
+<td class="py-4 px-space-md">
+<div class="flex items-center gap-space-xs">
+<div class="w-7 h-7 rounded-full bg-secondary text-on-secondary font-label-sm text-label-sm flex items-center justify-center shrink-0">
+                  MK
+                </div>
+<span class="font-body-md text-body-md text-on-surface whitespace-nowrap">Madina K.</span>
+</div>
+</td>
+<td class="py-4 px-space-md">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary-container/30 text-on-secondary-container font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                Nazoratda
+              </span>
+</td>
+<td class="py-4 px-space-lg text-right">
+<div class="inline-flex items-center gap-1">
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-primary transition-all">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:bg-error-container hover:text-error transition-all">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-low/60 transition-colors group">
+<td class="py-4 px-space-lg">
+<div class="flex flex-col min-w-0">
+<span class="font-headline-md text-[14px] text-on-surface group-hover:text-primary transition-colors">Kutubxona versiyalari nomutanosibligi</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Dependencies yangilanishi sababli kesh konflikti</span>
+</div>
+</td>
+<td class="py-4 px-space-md">
+<span class="px-3 py-1 rounded-lg bg-surface-container text-on-surface font-body-sm text-body-sm whitespace-nowrap">
+                API Gateway
+              </span>
+</td>
+<td class="py-4 px-space-sm text-center">
+<span class="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-surface-container font-label-md text-label-md font-bold text-on-surface">2</span>
+</td>
+<td class="py-4 px-space-sm text-center">
+<span class="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-surface-container font-label-md text-label-md font-bold text-on-surface">2</span>
+</td>
+<td class="py-4 px-space-md">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-tertiary-fixed text-on-tertiary-fixed-variant font-label-md text-label-md shadow-[0_6px_14px_-3px_rgba(74,225,118,0.25)]">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span>4 • Past</span>
+</div>
+</td>
+<td class="py-4 px-space-md">
+<div class="flex items-center gap-space-xs">
+<div class="w-7 h-7 rounded-full bg-tertiary-container text-on-primary font-label-sm text-label-sm flex items-center justify-center shrink-0">
+                  ON
+                </div>
+<span class="font-body-md text-body-md text-on-surface whitespace-nowrap">Otabek N.</span>
+</div>
+</td>
+<td class="py-4 px-space-md">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-tertiary-fixed/60 text-on-tertiary-fixed-variant font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+                Bartaraf etilgan
+              </span>
+</td>
+<td class="py-4 px-space-lg text-right">
+<div class="inline-flex items-center gap-1">
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-primary transition-all">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:bg-error-container hover:text-error transition-all">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container-low/60 transition-colors group">
+<td class="py-4 px-space-lg">
+<div class="flex flex-col min-w-0">
+<span class="font-headline-md text-[14px] text-on-surface group-hover:text-primary transition-colors">Server xotira yetishmovchiligi</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Tirbandlik paytida RAM resurslari 85% ga yetishi</span>
+</div>
+</td>
+<td class="py-4 px-space-md">
+<span class="px-3 py-1 rounded-lg bg-surface-container text-on-surface font-body-sm text-body-sm whitespace-nowrap">
+                E-tijorat platformasi
+              </span>
+</td>
+<td class="py-4 px-space-sm text-center">
+<span class="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-surface-container font-label-md text-label-md font-bold text-on-surface">4</span>
+</td>
+<td class="py-4 px-space-sm text-center">
+<span class="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-surface-container font-label-md text-label-md font-bold text-on-surface">3</span>
+</td>
+<td class="py-4 px-space-md">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant font-label-md text-label-md shadow-[0_6px_14px_-3px_rgba(108,69,192,0.2)]">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span>12 • O‘rta</span>
+</div>
+</td>
+<td class="py-4 px-space-md">
+<div class="flex items-center gap-space-xs">
+<div class="w-7 h-7 rounded-full bg-primary text-on-primary font-label-sm text-label-sm flex items-center justify-center shrink-0">
+                  JB
+                </div>
+<span class="font-body-md text-body-md text-on-surface whitespace-nowrap">Jasur B.</span>
+</div>
+</td>
+<td class="py-4 px-space-md">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-error-container/60 text-on-error-container font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+                Faol
+              </span>
+</td>
+<td class="py-4 px-space-lg text-right">
+<div class="inline-flex items-center gap-1">
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-primary transition-all">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:bg-error-container hover:text-error transition-all">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Footer / Pagination -->
+<div class="flex items-center justify-between px-space-lg py-space-md bg-surface-container-low/40">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Jami 4 ta risk ko‘rsatilmoqda</span>
+<div class="flex items-center gap-2">
+<button class="px-3 py-1 rounded-lg bg-surface-container-lowest text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm shadow-sm transition-all" disabled="">
+          Oldingi
+        </button>
+<button class="w-7 h-7 rounded-lg bg-primary-container text-on-primary font-label-sm text-label-sm flex items-center justify-center shadow-sm">
+          1
+        </button>
+<button class="px-3 py-1 rounded-lg bg-surface-container-lowest text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm shadow-sm transition-all">
+          Keyingi
+        </button>
+</div>
+</div>
+</div>
+<!-- Bottom Analytics / Actionable Deck -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-gutter">
+<!-- Prevention Strategy Insight -->
+<div class="lg:col-span-8 bg-surface-container-lowest p-space-lg rounded-[22px] shadow-[0_10px_30px_-5px_rgba(105,69,255,0.04),0_4px_12px_0_rgba(17,21,45,0.02)] flex flex-col justify-between gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-primary uppercase font-bold tracking-wider">Haftalik monitoring</span>
+<span class="font-headline-md text-headline-md text-on-surface">Risk dinamikasi va bartaraf qilish sur’ati</span>
+</div>
+<span class="px-3 py-1 rounded-full bg-surface-container font-label-sm text-label-sm text-on-surface">May 2025</span>
+</div>
+<!-- Compact SVG Trend Visualization -->
+<div class="w-full bg-surface-container-low/50 rounded-2xl p-space-md flex flex-col gap-2">
+<div class="flex justify-between items-center text-on-surface-variant font-label-sm text-label-sm px-1">
+<span>O‘tgan hafta: 6 ta faol</span>
+<span class="text-tertiary font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">trending_down</span> -33% kamayish
+          </span>
+<span>Joriy hafta: 4 ta faol</span>
+</div>
+<svg class="w-full h-16 text-primary" fill="none" viewbox="0 0 500 80" xmlns="http://www.w3.org/2000/svg">
+<path d="M0,60 C70,60 100,45 160,40 C220,35 280,55 350,30 C420,10 460,20 500,15" stroke="currentColor" stroke-linecap="round" stroke-width="3"></path>
+<path d="M0,60 C70,60 100,45 160,40 C220,35 280,55 350,30 C420,10 460,20 500,15 L500,80 L0,80 Z" fill="currentColor" fill-opacity="0.08"></path>
+<circle cx="160" cy="40" fill="currentColor" r="4"></circle>
+<circle cx="350" cy="30" fill="currentColor" r="4"></circle>
+<circle cx="500" cy="15" fill="currentColor" r="4"></circle>
+</svg>
+</div>
+<div class="flex flex-wrap items-center justify-between gap-space-sm pt-1">
+<div class="flex items-center gap-space-sm">
+<span class="w-3 h-3 rounded-full bg-tertiary"></span>
+<span class="font-body-sm text-body-sm text-on-surface">1 ta risk to‘liq bartaraf etildi</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="w-3 h-3 rounded-full bg-secondary"></span>
+<span class="font-body-sm text-body-sm text-on-surface">1 ta risk nazorat rejimiga o‘tkazildi</span>
+</div>
+</div>
+</div>
+<!-- Quick Team Assignment Status -->
+<div class="lg:col-span-4 bg-surface-container-lowest p-space-lg rounded-[22px] shadow-[0_10px_30px_-5px_rgba(105,69,255,0.04),0_4px_12px_0_rgba(17,21,45,0.02)] flex flex-col justify-between gap-space-md">
+<div>
+<span class="font-label-sm text-label-sm text-primary uppercase font-bold tracking-wider">Taqsimot</span>
+<h3 class="font-headline-md text-headline-md text-on-surface">Mas’ul mutaxassislar</h3>
+</div>
+<div class="flex flex-col gap-2">
+<div class="flex items-center justify-between p-2 rounded-xl bg-surface-container-low">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-primary text-on-primary font-label-sm text-label-sm flex items-center justify-center">JB</div>
+<span class="font-body-md text-body-md text-on-surface">Jasur B.</span>
+</div>
+<span class="font-label-md text-label-md px-2 py-0.5 rounded-md bg-surface-container text-on-surface">2 ta risk</span>
+</div>
+<div class="flex items-center justify-between p-2 rounded-xl bg-surface-container-low">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-secondary text-on-secondary font-label-sm text-label-sm flex items-center justify-center">MK</div>
+<span class="font-body-md text-body-md text-on-surface">Madina K.</span>
+</div>
+<span class="font-label-md text-label-md px-2 py-0.5 rounded-md bg-surface-container text-on-surface">1 ta risk</span>
+</div>
+<div class="flex items-center justify-between p-2 rounded-xl bg-surface-container-low">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-tertiary-container text-on-primary font-label-sm text-label-sm flex items-center justify-center">ON</div>
+<span class="font-body-md text-body-md text-on-surface">Otabek N.</span>
+</div>
+<span class="font-label-md text-label-md px-2 py-0.5 rounded-md bg-surface-container text-on-surface">1 ta risk</span>
+</div>
+</div>
+<div class="pt-2">
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant mb-1">
+<span>Umumiy barqarorlik</span>
+<span class="font-bold text-primary">78%</span>
+</div>
+<div class="w-full h-2 rounded-full bg-surface-container">
+<div class="h-2 rounded-full bg-primary-container" style="width: 78%"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Add Risk Modal Dialog -->
+<div class="fixed inset-0 z-50 bg-inverse-surface/40 backdrop-blur-sm hidden items-center justify-center p-space-md" id="risk-modal-overlay">
+<div class="bg-surface-container-lowest w-full max-w-xl rounded-[24px] shadow-[0_20px_45px_-10px_rgba(17,21,45,0.12)] p-space-xl flex flex-col gap-space-lg transform transition-all">
+<!-- Modal Header -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-xl bg-primary-fixed text-on-primary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-[22px]">add_alert</span>
+</div>
+<div>
+<h3 class="font-headline-lg text-headline-lg text-on-surface">Yangi risk qayd etish</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Loyiha doirasidagi xavfni baholash va ro‘yxatga olish</p>
+</div>
+</div>
+<button class="w-8 h-8 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface flex items-center justify-center transition-colors" id="close-risk-modal" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- Modal Form -->
+<form class="flex flex-col gap-space-md" id="new-risk-form" onsubmit="event.preventDefault();">
+<!-- Risk Nomi -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-lg text-label-lg text-on-surface">Risk nomi</label>
+<input class="w-full px-4 py-2.5 rounded-xl bg-surface-container-low text-on-surface placeholder:text-outline font-body-md text-body-md outline-none focus:bg-surface-container transition-all" placeholder="Masalan: To‘lov shlyuzi API kechikishi" required="" type="text"/>
+</div>
+<!-- Loyiha & Mas'ul -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+<div class="flex flex-col gap-1.5">
+<label class="font-label-lg text-label-lg text-on-surface">Loyiha</label>
+<select class="w-full px-3 py-2.5 rounded-xl bg-surface-container-low text-on-surface font-body-md text-body-md outline-none focus:bg-surface-container transition-all appearance-none cursor-pointer">
+<option>E-tijorat platformasi</option>
+<option>Mobil ilova qayta dizayni</option>
+<option>API Gateway</option>
+<option>CRM tizimi</option>
+</select>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-lg text-label-lg text-on-surface">Mas’ul xodim</label>
+<select class="w-full px-3 py-2.5 rounded-xl bg-surface-container-low text-on-surface font-body-md text-body-md outline-none focus:bg-surface-container transition-all appearance-none cursor-pointer">
+<option>Jasur B. (Backend Dev)</option>
+<option>Madina K. (UI/UX Designer)</option>
+<option>Otabek N. (DevOps Lead)</option>
+<option>Zilola Rahimova (Project Manager)</option>
+</select>
+</div>
+</div>
+<!-- Ehtimollik & Ta'sir (1-5) -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md bg-surface-container-low p-space-md rounded-2xl">
+<div class="flex flex-col gap-1.5">
+<div class="flex justify-between items-center">
+<label class="font-label-lg text-label-lg text-on-surface">Ehtimollik (1–5)</label>
+<span class="font-headline-md text-headline-md text-primary" id="prob-val">3</span>
+</div>
+<input class="w-full accent-primary-container cursor-pointer" id="prob-range" max="5" min="1" type="range" value="3"/>
+<span class="font-label-sm text-label-sm text-on-surface-variant">1: Juda past — 5: Juda yuqori</span>
+</div>
+<div class="flex flex-col gap-1.5">
+<div class="flex justify-between items-center">
+<label class="font-label-lg text-label-lg text-on-surface">Ta’sir (1–5)</label>
+<span class="font-headline-md text-headline-md text-secondary" id="impact-val">3</span>
+</div>
+<input class="w-full accent-secondary cursor-pointer" id="impact-range" max="5" min="1" type="range" value="3"/>
+<span class="font-label-sm text-label-sm text-on-surface-variant">1: Kam ta’sir — 5: Kritik to‘xtatish</span>
+</div>
+</div>
+<!-- Calculated Score Preview -->
+<div class="flex items-center justify-between px-space-md py-2 rounded-xl bg-surface-container">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Hisoblangan risk darajasi:</span>
+<div class="px-3 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant font-label-md text-label-md" id="modal-score-badge">
+            9 • O‘rta risk
+          </div>
+</div>
+<!-- Bartaraf etish rejasi -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-lg text-label-lg text-on-surface">Bartaraf etish rejasi</label>
+<textarea class="w-full px-4 py-2.5 rounded-xl bg-surface-container-low text-on-surface placeholder:text-outline font-body-md text-body-md outline-none focus:bg-surface-container transition-all resize-none" placeholder="Ushbu risk vujudga kelganda qilinadigan harakatlar ketma-ketligi..." rows="3"></textarea>
+</div>
+<!-- Holat -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-lg text-label-lg text-on-surface">Boshlang‘ich holat</label>
+<div class="grid grid-cols-3 gap-2">
+<label class="flex items-center justify-center p-2 rounded-xl bg-surface-container-low has-[:checked]:bg-surface-container has-[:checked]:text-primary cursor-pointer transition-all">
+<input checked="" class="sr-only" name="risk_status" type="radio" value="Faol"/>
+<span class="font-label-md text-label-md">Faol</span>
+</label>
+<label class="flex items-center justify-center p-2 rounded-xl bg-surface-container-low has-[:checked]:bg-surface-container has-[:checked]:text-primary cursor-pointer transition-all">
+<input class="sr-only" name="risk_status" type="radio" value="Nazoratda"/>
+<span class="font-label-md text-label-md">Nazoratda</span>
+</label>
+<label class="flex items-center justify-center p-2 rounded-xl bg-surface-container-low has-[:checked]:bg-surface-container has-[:checked]:text-primary cursor-pointer transition-all">
+<input class="sr-only" name="risk_status" type="radio" value="Bartaraf etilgan"/>
+<span class="font-label-md text-label-md">Bartaraf etilgan</span>
+</label>
+</div>
+</div>
+<!-- Actions -->
+<div class="flex items-center justify-end gap-space-sm pt-space-xs mt-2">
+<button class="px-space-lg py-2.5 rounded-xl bg-surface-container-low hover:bg-surface-container text-on-surface font-label-lg text-label-lg transition-all cursor-pointer" id="cancel-risk-modal" type="button">
+            Bekor qilish
+          </button>
+<button class="px-space-xl py-2.5 rounded-xl bg-primary-container hover:bg-primary text-on-primary font-label-lg text-label-lg shadow-[0_6px_16px_-3px_rgba(105,69,255,0.4)] transition-all cursor-pointer" id="save-risk-button" type="button">
+            Saqlash
+          </button>
+</div>
+</form>
+</div>
+</div>
+<script>
+    (function() {
+      const openBtn = document.getElementById('open-risk-modal');
+      const closeBtn = document.getElementById('close-risk-modal');
+      const cancelBtn = document.getElementById('cancel-risk-modal');
+      const saveBtn = document.getElementById('save-risk-button');
+      const overlay = document.getElementById('risk-modal-overlay');
+      const probRange = document.getElementById('prob-range');
+      const impactRange = document.getElementById('impact-range');
+      const probVal = document.getElementById('prob-val');
+      const impactVal = document.getElementById('impact-val');
+      const scoreBadge = document.getElementById('modal-score-badge');
+
+      function openModal() {
+        overlay.classList.remove('hidden');
+        overlay.classList.add('flex');
+      }
+
+      function closeModal() {
+        overlay.classList.add('hidden');
+        overlay.classList.remove('flex');
+      }
+
+      function updateScore() {
+        const p = parseInt(probRange.value, 10);
+        const i = parseInt(impactRange.value, 10);
+        probVal.textContent = p;
+        impactVal.textContent = i;
+        const total = p * i;
+
+        if (total <= 5) {
+          scoreBadge.textContent = total + " • Past risk";
+          scoreBadge.className = "px-3 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed-variant font-label-md text-label-md";
+        } else if (total <= 12) {
+          scoreBadge.textContent = total + " • O‘rta risk";
+          scoreBadge.className = "px-3 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant font-label-md text-label-md";
+        } else {
+          scoreBadge.textContent = total + " • Yuqori risk";
+          scoreBadge.className = "px-3 py-0.5 rounded-full bg-error-container text-error font-label-md text-label-md";
+        }
+      }
+
+      if (openBtn) openBtn.addEventListener('click', openModal);
+      if (closeBtn) closeBtn.addEventListener('click', closeModal);
+      if (cancelBtn) cancelBtn.addEventListener('click', closeModal);
+      if (saveBtn) saveBtn.addEventListener('click', closeModal);
+
+      if (overlay) {
+        overlay.addEventListener('click', function(e) {
+          if (e.target === overlay) {
+            closeModal();
+          }
+        });
+      }
+
+      if (probRange && impactRange) {
+        probRange.addEventListener('input', updateScore);
+        impactRange.addEventListener('input', updateScore);
+      }
+    })();
+  </script>
+</div></main></div></body></html>

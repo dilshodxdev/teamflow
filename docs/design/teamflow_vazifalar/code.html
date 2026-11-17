@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+
+<html lang="uz"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"surface-dim":"#d5d8f9","surface-container-highest":"#dee0ff","surface-container-lowest":"#ffffff","on-primary-fixed":"#1a0063","on-tertiary-fixed-variant":"#005321","on-primary-fixed-variant":"#4400d9","on-secondary":"#ffffff","on-surface":"#161a32","outline":"#797588","on-error":"#ffffff","primary-container":"#6945ff","inverse-surface":"#2b2f48","on-tertiary":"#ffffff","secondary":"#6c45c0","surface-tint":"#5d34f3","inverse-primary":"#c9bfff","secondary-fixed":"#eaddff","primary-fixed-dim":"#c9bfff","on-primary-container":"#efe9ff","secondary-fixed-dim":"#d1bcff","error":"#ba1a1a","on-secondary-fixed-variant":"#5429a7","secondary-container":"#a67ffd","surface-container-high":"#e5e6ff","surface-variant":"#dee0ff","tertiary":"#005f28","background":"#fbf8ff","primary-fixed":"#e5deff","surface-bright":"#fbf8ff","on-primary":"#ffffff","surface-container":"#edecff","on-secondary-container":"#3a008b","on-tertiary-fixed":"#002109","primary":"#501fe7","on-error-container":"#93000a","tertiary-fixed-dim":"#4ae176","tertiary-fixed":"#6bff8f","inverse-on-surface":"#f0efff","on-surface-variant":"#484556","surface":"#fbf8ff","error-container":"#ffdad6","tertiary-container":"#007b35","on-secondary-fixed":"#24005b","outline-variant":"#c9c4d9","on-tertiary-container":"#aaffb4","surface-container-low":"#f4f2ff","on-background":"#161a32"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-lg":"1.25rem","space-xl":"1.75rem","gutter":"1.25rem","space-xs":"0.25rem","space-2xl":"2.25rem","margin":"1.5rem","space-md":"0.875rem","space-sm":"0.5rem"},"fontFamily":{"body-sm":["Plus Jakarta Sans"],"label-lg":["Plus Jakarta Sans"],"label-sm":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"label-md":["Plus Jakarta Sans"],"display-md":["Plus Jakarta Sans"],"body-lg":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"display-lg":["Plus Jakarta Sans"]},"fontSize":{"body-sm":["12px",{"lineHeight":"16px","fontWeight":"400"}],"label-lg":["13px",{"lineHeight":"18px","letterSpacing":"0.01em","fontWeight":"600"}],"label-sm":["10px",{"lineHeight":"12px","fontWeight":"500"}],"headline-md":["18px",{"lineHeight":"24px","letterSpacing":"-0.005em","fontWeight":"600"}],"body-md":["13px",{"lineHeight":"18px","fontWeight":"500"}],"label-md":["11px",{"lineHeight":"14px","letterSpacing":"0.02em","fontWeight":"600"}],"display-md":["26px",{"lineHeight":"34px","letterSpacing":"-0.015em","fontWeight":"700"}],"body-lg":["15px",{"lineHeight":"22px","fontWeight":"500"}],"headline-lg":["22px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"700"}],"display-lg":["32px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"700"}]}}}}</script></head><body class="bg-surface font-body-md text-on-surface antialiased min-h-screen"><aside class="fixed left-0 top-0 h-screen w-64 bg-surface-container-lowest shadow-[0_10px_30px_-5px_rgba(105,69,255,0.04),0_4px_12px_0_rgba(17,21,45,0.02)] z-50 flex flex-col justify-between p-space-md"><div class="flex flex-col gap-space-lg"><div class="flex items-center gap-space-sm px-space-sm py-space-xs"><img alt="TeamFlow Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ALJJyrD-uXYbTRfirP8ZyhmkdRK31Z9Vn2xKcjiNFy7WZglPoC2RDEqOd5azxr6QrIeWKdKGwOHP3LHtakTVW5rwPWV1xO-LrXbbd81eU8LOO8UAPJNlgC1Ztw2X0frQCylMH6X7dlZp59c2JV_YvbNkIXQ3VvYB3qlckeCgKvBHLtfl61noj2ulKYc6dzVSfuvZ6u-dnIrfKfisEAEoWqM7FuE8z7YhJjNTQByhiNDyP7ta"/><span class="font-headline-lg text-headline-lg tracking-tight text-on-surface">TeamFlow</span></div><nav class="flex flex-col gap-space-xs" data-active-classes="bg-surface-container text-primary font-headline-md"><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[20px]">grid_view</span><span>Dashboard</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="loyihalar" href="#"><span class="material-symbols-outlined text-[20px]">folder</span><span>Loyihalar</span></a><a aria-current="page" class="flex items-center gap-space-sm px-space-md py-space-sm rounded-xl transition-all bg-surface-container text-primary font-headline-md" data-path="vazifalar" href="#"><span class="material-symbols-outlined text-[20px]">check_box</span><span>Vazifalar</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="kalendar" href="#"><span class="material-symbols-outlined text-[20px]">calendar_today</span><span>Kalendar</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="jamoa" href="#"><span class="material-symbols-outlined text-[20px]">group</span><span>Jamoa</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="risklar" href="#"><span class="material-symbols-outlined text-[20px]">warning</span><span>Risklar</span></a></nav></div><div class="p-space-sm rounded-xl bg-surface-container-low flex items-center justify-between gap-space-xs"><div class="flex items-center gap-space-sm overflow-hidden"><div class="w-8 h-8 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-label-md text-label-md shrink-0">PM</div><div class="flex flex-col min-w-0"><span class="font-label-lg text-label-lg text-on-surface truncate">Project Manager</span><span class="font-label-sm text-label-sm text-on-surface-variant truncate">Jamoa a'zosi</span></div></div><span class="material-symbols-outlined text-outline text-[18px] shrink-0">unfold_more</span></div></aside><div class="pl-64 flex flex-col min-h-screen"><header class="fixed top-0 left-64 right-0 h-16 bg-surface-container-lowest/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-end px-margin"><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-sm"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEBBrn5p-mDhRRHke-OGyLhywrsxDMbr6O0KoIbysLgPoH5Xq0GKD5_UWLt6XHPhjh0_c3ZzVlrHnzKs1X9w4NZpowy2zHL3sJ5rY80sUcb959SK1pQYpftxxvfRBNa5drkFdWJYn_3BfaThsmhIfLWapoYHjrvtHP2QRu7YUOhdrK099pbT7sro3LtoPAW8lIMgjHn5ATOkUuglo2yCtrp8GSS6f5Q7gYPtd81EU"/><div class="flex flex-col"><span class="font-label-lg text-label-lg text-on-surface">Zilola Rahimova</span><span class="font-label-sm text-label-sm text-on-surface-variant">Project Manager</span></div></div><a class="flex items-center gap-space-xs px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="logout" href="#"><span class="material-symbols-outlined text-[18px]">logout</span><span>Chiqish</span></a></div></header><main class="flex-1 pt-16 bg-surface px-margin py-margin"><div class="flex flex-col w-full gap-space-lg">
+<!-- Top Header Area with Filters & Actions -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-md bg-surface-container-lowest p-space-lg rounded-xl shadow-[0_10px_30px_-5px_rgba(105,69,255,0.04),0_4px_12px_0_rgba(17,21,45,0.02)]">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-sm">
+<h1 class="font-headline-lg text-headline-lg text-on-surface">Vazifalar</h1>
+<span class="px-space-sm py-0.5 rounded-full bg-surface-container font-label-sm text-label-sm text-primary">12 ta vazifa</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">Loyihalar bo‘yicha vazifalarni boshqarish va taqsimlash</p>
+</div>
+<div class="flex items-center gap-space-sm flex-wrap">
+<!-- Project Selector Pill Dropdown -->
+<div class="relative inline-flex items-center bg-surface-container-low hover:bg-surface-container transition-colors rounded-xl px-space-md py-space-sm gap-space-sm cursor-pointer shadow-sm">
+<span class="material-symbols-outlined text-[18px] text-primary">folder_open</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Loyiha</span>
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Mobil ilova qayta dizayni</span>
+</div>
+<span class="material-symbols-outlined text-outline text-[18px] ml-space-xs">expand_more</span>
+</div>
+<!-- Quick Search Bar -->
+<div class="hidden md:flex items-center bg-surface-container-low rounded-xl px-space-md py-space-sm gap-space-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">search</span>
+<input class="bg-transparent font-body-sm text-body-sm text-on-surface focus:outline-none w-28 lg:w-40 placeholder:text-outline" placeholder="Qidirish..." type="text"/>
+</div>
+<!-- Primary Action: + Yangi vazifa -->
+<button class="inline-flex items-center gap-space-xs bg-primary hover:bg-primary-container text-on-primary font-label-lg text-label-lg px-space-lg py-space-md rounded-xl transition-all shadow-[0_8px_18px_-4px_rgba(105,69,255,0.4)] active:scale-95 cursor-pointer" onclick="document.getElementById('task-modal').classList.remove('hidden')">
+<span class="material-symbols-outlined text-[20px]">add</span>
+<span>Yangi vazifa</span>
+</button>
+</div>
+</div>
+<!-- Metric Quick Ribbon -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-space-md">
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-[0_4px_12px_rgba(17,21,45,0.02)] flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">assignment_late</span>
+</div>
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Kutayotgan ishlar</span>
+<p class="font-headline-md text-headline-md text-on-surface">4 ta vazifa</p>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-secondary bg-surface-container px-space-sm py-1 rounded-full">Rejada</span>
+</div>
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-[0_4px_12px_rgba(17,21,45,0.02)] flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-xl bg-surface-container-high flex items-center justify-center text-primary-fixed-dim">
+<span class="material-symbols-outlined text-[20px]">timelapse</span>
+</div>
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Jarayon tezligi</span>
+<p class="font-headline-md text-headline-md text-on-surface">3 ta faol</p>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-primary font-semibold bg-surface-container-high px-space-sm py-1 rounded-full">65% unum</span>
+</div>
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-[0_4px_12px_rgba(17,21,45,0.02)] flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-xl bg-tertiary-fixed flex items-center justify-center text-on-tertiary-fixed">
+<span class="material-symbols-outlined text-[20px]">verified</span>
+</div>
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Yakunlanganlar</span>
+<p class="font-headline-md text-headline-md text-on-surface">5 ta tayyor</p>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-tertiary font-semibold bg-tertiary-fixed/30 px-space-sm py-1 rounded-full">Bu hafta</span>
+</div>
+</div>
+<!-- 3-Column Kanban Board Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-space-lg items-start">
+<!-- Ustun 1: Rejalashtirilgan (To Do) -->
+<div class="flex flex-col gap-space-md bg-surface-container-low/60 p-space-md rounded-2xl">
+<!-- Column Header -->
+<div class="flex items-center justify-between px-space-xs py-space-xs">
+<div class="flex items-center gap-space-sm">
+<div class="w-2.5 h-2.5 rounded-full bg-secondary"></div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Rejalashtirilgan</h2>
+<span class="w-6 h-6 rounded-full bg-surface-container text-on-surface-variant flex items-center justify-center font-label-sm text-label-sm font-semibold">4</span>
+</div>
+<button class="text-outline hover:text-on-surface transition-colors p-1 rounded-lg">
+<span class="material-symbols-outlined text-[18px]">more_horiz</span>
+</button>
+</div>
+<!-- Kanban Column Cards Container -->
+<div class="flex flex-col gap-space-md">
+<!-- Card 1: Foydalanuvchi intervyulari tahlili -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-[0_10px_30px_-5px_rgba(105,69,255,0.03),0_4px_12px_0_rgba(17,21,45,0.02)] hover:shadow-md transition-all flex flex-col gap-space-md group">
+<div class="flex items-start justify-between gap-space-sm">
+<span class="px-space-sm py-0.5 rounded-full bg-surface-container-high text-on-surface font-label-sm text-label-sm font-semibold">Tadqiqot</span>
+<!-- Ustuvorlik Badge (O'rta / Yellow-Amber) -->
+<span class="inline-flex items-center gap-1 px-space-sm py-0.5 rounded-full bg-amber-50 text-amber-700 font-label-sm text-label-sm font-semibold shadow-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+              O‘rta
+            </span>
+</div>
+<div class="flex flex-col gap-space-xs">
+<h3 class="font-label-lg text-label-lg text-on-surface group-hover:text-primary transition-colors">Foydalanuvchi intervyulari tahlili</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">8 ta respondent bilan o‘tkazilgan intervyu natijalarini to‘plash va asosiy og‘riqli nuqtalarni tizimlashtirish.</p>
+</div>
+<!-- Card Metadata & Assignee -->
+<div class="flex items-center justify-between pt-space-xs">
+<div class="flex items-center gap-space-xs">
+<img class="w-7 h-7 rounded-full object-cover shadow-sm" data-alt="Portrait of Zilola Rahimova, an elegant Central Asian female project coordinator with warm lighting and a soft neutral studio background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9QGqxdWxRv8_1ntpVPF0NN8cNx934G8WqJT9xdEJon4fU5JEkp4TQn1SbsLd6mATbhdTY6iPYFLQSAnUZM_EBtqq9-l6OLw2KGtwN-7RwLjSyg9XMTzMU_LcGUL5xC2JwH-PBbmnfxfTd23EJm74_DLgSTDq7Vh3tJEv69v_mu7GWXxqiJZOeiAEnL86Kmpqdjwj335uwcImwniCjwPgfQ5ZeEwAhuwLUe1Ji_9Q"/>
+<span class="font-label-sm text-label-sm text-on-surface font-medium">Zilola R.</span>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[15px] text-outline">calendar_today</span>
+<span>18 May 2025</span>
+</div>
+</div>
+<!-- Status Dropdown Bar -->
+<div class="pt-space-xs">
+<div class="relative w-full">
+<select class="w-full bg-surface-container-low hover:bg-surface-container text-on-surface-variant font-label-sm text-label-sm py-space-xs px-space-sm rounded-lg appearance-none cursor-pointer focus:outline-none focus:ring-1 focus:ring-primary transition-colors">
+<option selected="">Rejalashtirilgan ▾</option>
+<option>Jarayonda</option>
+<option>Bajarilgan</option>
+</select>
+</div>
+</div>
+</div>
+<!-- Card 2: Xavfsizlik auditini o'tkazish -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-[0_10px_30px_-5px_rgba(105,69,255,0.03),0_4px_12px_0_rgba(17,21,45,0.02)] hover:shadow-md transition-all flex flex-col gap-space-md group">
+<div class="flex items-start justify-between gap-space-sm">
+<span class="px-space-sm py-0.5 rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm font-semibold">Xavfsizlik</span>
+<!-- Ustuvorlik Badge (Yuqori / Red) -->
+<span class="inline-flex items-center gap-1 px-space-sm py-0.5 rounded-full bg-red-50 text-error font-label-sm text-label-sm font-semibold shadow-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+              Yuqori
+            </span>
+</div>
+<div class="flex flex-col gap-space-xs">
+<h3 class="font-label-lg text-label-lg text-on-surface group-hover:text-primary transition-colors">Xavfsizlik auditini o‘tkazish</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">Avtorizatsiya protokollari va foydalanuvchi ma'lumotlar bazasi shifrlash usullarini to‘liq tekshiruvdan o‘tkazish.</p>
+</div>
+<!-- Card Metadata & Assignee -->
+<div class="flex items-center justify-between pt-space-xs">
+<div class="flex items-center gap-space-xs">
+<img class="w-7 h-7 rounded-full object-cover shadow-sm" data-alt="Portrait of Sardor Aliyev, a smart tech security engineer with glasses smiling gently in an airy, modern collaborative workspace" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZgzRh-ovpirEWixYjB41ynbOQigiObwCjYLloWu-QDnVEQA3fy11Oq_KA1yg3rAMbVLDcrqf6IRskDiakfE5a9wN4L5NIZDzBHrwMoID0BfKeNytqxHBrXPlSsmK4-T43dYgi-_UhECeYSuvBfmT45qnnVtPvCb7dvcMTCBb9gKoEY5LLn28K_oJl3NJRjHnKhSGCTm9IuPgBPGTBlf7ffiGI5V6XafwQH5OC8-0"/>
+<span class="font-label-sm text-label-sm text-on-surface font-medium">Sardor A.</span>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[15px] text-outline">calendar_today</span>
+<span>22 May 2025</span>
+</div>
+</div>
+<!-- Status Dropdown Bar -->
+<div class="pt-space-xs">
+<div class="relative w-full">
+<select class="w-full bg-surface-container-low hover:bg-surface-container text-on-surface-variant font-label-sm text-label-sm py-space-xs px-space-sm rounded-lg appearance-none cursor-pointer focus:outline-none focus:ring-1 focus:ring-primary transition-colors">
+<option selected="">Rejalashtirilgan ▾</option>
+<option>Jarayonda</option>
+<option>Bajarilgan</option>
+</select>
+</div>
+</div>
+</div>
+<!-- Add Card Quick Inline Button -->
+<button class="w-full py-space-sm px-space-md rounded-xl bg-surface-container-lowest/70 hover:bg-surface-container-lowest text-on-surface-variant hover:text-primary font-label-sm text-label-sm flex items-center justify-center gap-space-xs transition-all shadow-sm" onclick="document.getElementById('task-modal').classList.remove('hidden')">
+<span class="material-symbols-outlined text-[18px]">add_circle</span>
+<span>Vazifa qo‘shish</span>
+</button>
+</div>
+</div>
+<!-- Ustun 2: Jarayonda (In Progress) -->
+<div class="flex flex-col gap-space-md bg-surface-container-low/60 p-space-md rounded-2xl">
+<!-- Column Header -->
+<div class="flex items-center justify-between px-space-xs py-space-xs">
+<div class="flex items-center gap-space-sm">
+<div class="w-2.5 h-2.5 rounded-full bg-primary animate-pulse"></div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Jarayonda</h2>
+<span class="w-6 h-6 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-sm text-label-sm font-semibold shadow-sm">3</span>
+</div>
+<button class="text-outline hover:text-on-surface transition-colors p-1 rounded-lg">
+<span class="material-symbols-outlined text-[18px]">more_horiz</span>
+</button>
+</div>
+<!-- Kanban Column Cards Container -->
+<div class="flex flex-col gap-space-md">
+<!-- Card 3: UI dizayn konsepsiyasi -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-[0_10px_30px_-5px_rgba(105,69,255,0.05),0_4px_12px_0_rgba(17,21,45,0.02)] hover:shadow-md transition-all flex flex-col gap-space-md group">
+<div class="flex items-start justify-between gap-space-sm">
+<span class="px-space-sm py-0.5 rounded-full bg-surface-container text-primary font-label-sm text-label-sm font-semibold">Dizayn</span>
+<!-- Ustuvorlik Badge (Yuqori / Red) -->
+<span class="inline-flex items-center gap-1 px-space-sm py-0.5 rounded-full bg-red-50 text-error font-label-sm text-label-sm font-semibold shadow-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+              Yuqori
+            </span>
+</div>
+<div class="flex flex-col gap-space-xs">
+<h3 class="font-label-lg text-label-lg text-on-surface group-hover:text-primary transition-colors">UI dizayn konsepsiyasi</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">Asosiy ekranlar va foydalanuvchi interfeysi uchun yangilangan pastel ranglar tizimi hamda prototiplar tayyorlash.</p>
+</div>
+<!-- Progress Mini Track -->
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<span>Bajarilishi</span>
+<span class="font-semibold text-primary">70%</span>
+</div>
+<div class="w-full h-1.5 rounded-full bg-surface-container overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 70%;"></div>
+</div>
+</div>
+<!-- Card Metadata & Assignee -->
+<div class="flex items-center justify-between pt-space-xs">
+<div class="flex items-center gap-space-xs">
+<img class="w-7 h-7 rounded-full object-cover shadow-sm" data-alt="Portrait of Madina Karimova, an inspiring young female UI/UX designer with creative energy in a bright minimalist design office" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-dEssKNJVI1uCIhxe3q7FFtjoKEziSPoodf3hJa65FMWWd31yX4ey2cNR7ZUJufXNpi40FZnEWy7cLb9d3YWpc4RT2koVwU3TCMw3nXjLftRcwPmGslW2DTkho_QWT1QJjHn5hBXHlMz6WZWuYllGxLiq8ao0iLyFzfLvYPSBAyV3cyJ96ugfnR9vd1_zW_LVCEJa4OmYb0at4_cCFI-RK-ryvUUy-9Av_EO0qRo"/>
+<span class="font-label-sm text-label-sm text-on-surface font-medium">Madina K.</span>
+</div>
+<div class="flex items-center gap-1 text-primary font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[15px]">event</span>
+<span>15 May 2025</span>
+</div>
+</div>
+<!-- Status Dropdown Bar -->
+<div class="pt-space-xs">
+<div class="relative w-full">
+<select class="w-full bg-surface-container text-primary font-label-sm text-label-sm font-semibold py-space-xs px-space-sm rounded-lg appearance-none cursor-pointer focus:outline-none focus:ring-1 focus:ring-primary transition-colors">
+<option>Rejalashtirilgan</option>
+<option selected="">Jarayonda ▾</option>
+<option>Bajarilgan</option>
+</select>
+</div>
+</div>
+</div>
+<!-- Card 4: REST API arxitekturasi -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-[0_10px_30px_-5px_rgba(105,69,255,0.03),0_4px_12px_0_rgba(17,21,45,0.02)] hover:shadow-md transition-all flex flex-col gap-space-md group">
+<div class="flex items-start justify-between gap-space-sm">
+<span class="px-space-sm py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm font-semibold">Backend</span>
+<!-- Ustuvorlik Badge (O'rta / Amber) -->
+<span class="inline-flex items-center gap-1 px-space-sm py-0.5 rounded-full bg-amber-50 text-amber-700 font-label-sm text-label-sm font-semibold shadow-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+              O‘rta
+            </span>
+</div>
+<div class="flex flex-col gap-space-xs">
+<h3 class="font-label-lg text-label-lg text-on-surface group-hover:text-primary transition-colors">REST API arxitekturasi</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">Mobil mijoz bilan integratsiya qilish uchun asosiy endpointlar va ma'lumotlar sxemasini yaratish.</p>
+</div>
+<!-- Progress Mini Track -->
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<span>Bajarilishi</span>
+<span class="font-semibold text-secondary">45%</span>
+</div>
+<div class="w-full h-1.5 rounded-full bg-surface-container overflow-hidden">
+<div class="h-full bg-secondary rounded-full" style="width: 45%;"></div>
+</div>
+</div>
+<!-- Card Metadata & Assignee -->
+<div class="flex items-center justify-between pt-space-xs">
+<div class="flex items-center gap-space-xs">
+<img class="w-7 h-7 rounded-full object-cover shadow-sm" data-alt="Portrait of Jasur Bekmirzayev, a professional backend software developer working on code in an illuminated tech hub" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBu_CxOdzd_1GcpH2dujfaoHrPFDBzsUVtjMTBCdUXJbah5Y_jvf2VBWId_EHRRY-iulY54qLoZ1Hbk6Fu6o8fXTbd8JmHZ_1JMbL53mgJdsBTrS8NsKHe8eSNeo2JnFF4wkjKPVlGTFPmqIUKPsoug_PTebIIxpo7tpR0KoQC2B9-PbjY3qKFzLPEYKcP_SWFE6tMMR_wL84YltBbug5_1Tc-23-Lzbb-WUNxuKiE"/>
+<span class="font-label-sm text-label-sm text-on-surface font-medium">Jasur B.</span>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[15px] text-outline">calendar_today</span>
+<span>16 May 2025</span>
+</div>
+</div>
+<!-- Status Dropdown Bar -->
+<div class="pt-space-xs">
+<div class="relative w-full">
+<select class="w-full bg-surface-container text-primary font-label-sm text-label-sm font-semibold py-space-xs px-space-sm rounded-lg appearance-none cursor-pointer focus:outline-none focus:ring-1 focus:ring-primary transition-colors">
+<option>Rejalashtirilgan</option>
+<option selected="">Jarayonda ▾</option>
+<option>Bajarilgan</option>
+</select>
+</div>
+</div>
+</div>
+<!-- Add Card Quick Inline Button -->
+<button class="w-full py-space-sm px-space-md rounded-xl bg-surface-container-lowest/70 hover:bg-surface-container-lowest text-on-surface-variant hover:text-primary font-label-sm text-label-sm flex items-center justify-center gap-space-xs transition-all shadow-sm" onclick="document.getElementById('task-modal').classList.remove('hidden')">
+<span class="material-symbols-outlined text-[18px]">add_circle</span>
+<span>Vazifa qo‘shish</span>
+</button>
+</div>
+</div>
+<!-- Ustun 3: Bajarilgan (Done) -->
+<div class="flex flex-col gap-space-md bg-surface-container-low/60 p-space-md rounded-2xl">
+<!-- Column Header -->
+<div class="flex items-center justify-between px-space-xs py-space-xs">
+<div class="flex items-center gap-space-sm">
+<div class="w-2.5 h-2.5 rounded-full bg-tertiary-container"></div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Bajarilgan</h2>
+<span class="w-6 h-6 rounded-full bg-tertiary-fixed text-on-tertiary-fixed flex items-center justify-center font-label-sm text-label-sm font-semibold shadow-sm">5</span>
+</div>
+<button class="text-outline hover:text-on-surface transition-colors p-1 rounded-lg">
+<span class="material-symbols-outlined text-[18px]">more_horiz</span>
+</button>
+</div>
+<!-- Kanban Column Cards Container -->
+<div class="flex flex-col gap-space-md">
+<!-- Card 5: Dastlabki talablar spetsifikatsiyasi -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-[0_10px_30px_-5px_rgba(105,69,255,0.03),0_4px_12px_0_rgba(17,21,45,0.02)] hover:shadow-md transition-all flex flex-col gap-space-md group opacity-90 hover:opacity-100">
+<div class="flex items-start justify-between gap-space-sm">
+<span class="px-space-sm py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm font-semibold">Hujjatlar</span>
+<!-- Ustuvorlik Badge (Past / Green-Gray) -->
+<span class="inline-flex items-center gap-1 px-space-sm py-0.5 rounded-full bg-tertiary-fixed/30 text-tertiary font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+              Past
+            </span>
+</div>
+<div class="flex flex-col gap-space-xs">
+<h3 class="font-label-lg text-label-lg text-on-surface group-hover:text-primary transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-tertiary-container text-[18px]">check_circle</span>
+<span class="line-through text-on-surface-variant">Dastlabki talablar spetsifikatsiyasi</span>
+</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">Loyiha doirasi va texnik talablar ro‘yxati to‘liq tasdiqlangan va jamoaga taqdim etilgan.</p>
+</div>
+<!-- Card Metadata & Assignee -->
+<div class="flex items-center justify-between pt-space-xs">
+<div class="flex items-center gap-space-xs">
+<img class="w-7 h-7 rounded-full object-cover shadow-sm" data-alt="Portrait of Zilola Rahimova, female project lead with friendly smile in modern bright office" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmIAViKdOtom4QVvhxjfZ0SFcG13O69h6v55sjM6xJOmOqdv-kIFlZKGN8wYrqHX-MSciLySftUjxF4uzpY_4vCHIVxByFNwPuEHITPclrLCmogzOrIc2vCVL43AY3sZTqQ7cvT-rr8BpNZ_XbSut2mhx57LaXMYOKUZVH9x7VYcUa8AaEMiSr1QN-Xv0C0JeNEQGlVHviTMpKsW9Tg1_NxUK9GhsG9BKJdiJz6u4"/>
+<span class="font-label-sm text-label-sm text-on-surface font-medium">Zilola R.</span>
+</div>
+<div class="flex items-center gap-1 text-tertiary font-label-sm text-label-sm font-medium">
+<span class="material-symbols-outlined text-[15px]">done_all</span>
+<span>12 May 2025</span>
+</div>
+</div>
+<!-- Status Dropdown Bar -->
+<div class="pt-space-xs">
+<div class="relative w-full">
+<select class="w-full bg-tertiary-fixed/20 text-tertiary font-label-sm text-label-sm font-semibold py-space-xs px-space-sm rounded-lg appearance-none cursor-pointer focus:outline-none focus:ring-1 focus:ring-tertiary transition-colors">
+<option>Rejalashtirilgan</option>
+<option>Jarayonda</option>
+<option selected="">Bajarilgan ▾</option>
+</select>
+</div>
+</div>
+</div>
+<!-- Card 6: Figma komponentlar kutubxonasi -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-[0_10px_30px_-5px_rgba(105,69,255,0.03),0_4px_12px_0_rgba(17,21,45,0.02)] hover:shadow-md transition-all flex flex-col gap-space-md group opacity-90 hover:opacity-100">
+<div class="flex items-start justify-between gap-space-sm">
+<span class="px-space-sm py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm font-semibold">UI Kit</span>
+<!-- Ustuvorlik Badge (O'rta / Amber) -->
+<span class="inline-flex items-center gap-1 px-space-sm py-0.5 rounded-full bg-amber-50 text-amber-700 font-label-sm text-label-sm font-semibold shadow-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+              O‘rta
+            </span>
+</div>
+<div class="flex flex-col gap-space-xs">
+<h3 class="font-label-lg text-label-lg text-on-surface group-hover:text-primary transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-tertiary-container text-[18px]">check_circle</span>
+<span class="line-through text-on-surface-variant">Figma komponentlar kutubxonasi</span>
+</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">Tugmalar, maydonlar, navigatsiya panellari va rang o‘zgaruvchilari kutubxona sifatida saqlandi.</p>
+</div>
+<!-- Card Metadata & Assignee -->
+<div class="flex items-center justify-between pt-space-xs">
+<div class="flex items-center gap-space-xs">
+<img class="w-7 h-7 rounded-full object-cover shadow-sm" data-alt="Portrait of Madina Karimova, creative UI designer sitting with tablet in cozy studio" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzL_WejiaFbpjpuKSNyYtnthVBUARQxzcNzzUtarsZLN88YC01kdaRpIyRji8fJhvvLSj8CcQI8Th8Q8b-Sfw3tUDhn62Yg2sn0HzF5CvBSdXznGDHLtK9aB44SoDz4pC9SAdBufP3Gx5ymtsHbPCM9kNPawIGoEXr63r-8fITBwknWtSh150uZ1bXsSPVLA_pPdlvpS4sb7wheZPb3idFb1n9kFLABmp4u_DHJW8"/>
+<span class="font-label-sm text-label-sm text-on-surface font-medium">Madina K.</span>
+</div>
+<div class="flex items-center gap-1 text-tertiary font-label-sm text-label-sm font-medium">
+<span class="material-symbols-outlined text-[15px]">done_all</span>
+<span>14 May 2025</span>
+</div>
+</div>
+<!-- Status Dropdown Bar -->
+<div class="pt-space-xs">
+<div class="relative w-full">
+<select class="w-full bg-tertiary-fixed/20 text-tertiary font-label-sm text-label-sm font-semibold py-space-xs px-space-sm rounded-lg appearance-none cursor-pointer focus:outline-none focus:ring-1 focus:ring-tertiary transition-colors">
+<option>Rejalashtirilgan</option>
+<option>Jarayonda</option>
+<option selected="">Bajarilgan ▾</option>
+</select>
+</div>
+</div>
+</div>
+<!-- Add Card Quick Inline Button -->
+<button class="w-full py-space-sm px-space-md rounded-xl bg-surface-container-lowest/70 hover:bg-surface-container-lowest text-on-surface-variant hover:text-primary font-label-sm text-label-sm flex items-center justify-center gap-space-xs transition-all shadow-sm" onclick="document.getElementById('task-modal').classList.remove('hidden')">
+<span class="material-symbols-outlined text-[18px]">add_circle</span>
+<span>Vazifa qo‘shish</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Create Task Modal Dialog -->
+<div class="fixed inset-0 z-50 flex items-center justify-center bg-inverse-surface/40 backdrop-blur-sm hidden p-space-md" id="task-modal">
+<div class="w-full max-w-lg bg-surface-container-lowest rounded-2xl p-space-xl shadow-[0_20px_45px_-10px_rgba(17,21,45,0.12)] flex flex-col gap-space-lg max-h-[921px] overflow-y-auto">
+<!-- Modal Header -->
+<div class="flex items-center justify-between">
+<div class="flex flex-col gap-space-xs">
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Yangi vazifa qo‘shish</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Loyiha rejasiga yangi topshiriq va mas'ul a'zoni biriktiring</p>
+</div>
+<button class="w-8 h-8 rounded-full bg-surface-container-low hover:bg-surface-container text-on-surface-variant flex items-center justify-center transition-colors" onclick="document.getElementById('task-modal').classList.add('hidden')">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- Form Inputs Grid -->
+<form class="flex flex-col gap-space-md" onsubmit="event.preventDefault(); document.getElementById('task-modal').classList.add('hidden');">
+<!-- Vazifa nomi -->
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-lg text-label-lg text-on-surface">Vazifa nomi *</label>
+<input class="w-full bg-surface-container-low focus:bg-surface-container-lowest text-on-surface font-body-md text-body-md px-space-md py-space-sm rounded-xl outline-none focus:ring-2 focus:ring-primary shadow-sm transition-all" placeholder="Masalan: Bosh sahifa prototipini tasdiqlash" required="" type="text"/>
+</div>
+<!-- Tavsif -->
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-lg text-label-lg text-on-surface">Tavsif</label>
+<textarea class="w-full bg-surface-container-low focus:bg-surface-container-lowest text-on-surface font-body-md text-body-md px-space-md py-space-sm rounded-xl outline-none focus:ring-2 focus:ring-primary shadow-sm transition-all resize-none" placeholder="Vazifa haqida batafsil ma'lumot va kutilayotgan natijalar..." rows="3"></textarea>
+</div>
+<!-- Row: Loyiha & Mas'ul -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-lg text-label-lg text-on-surface">Loyiha</label>
+<div class="relative">
+<select class="w-full bg-surface-container-low text-on-surface font-body-md text-body-md px-space-md py-space-sm rounded-xl appearance-none outline-none focus:ring-2 focus:ring-primary shadow-sm cursor-pointer">
+<option selected="">Mobil ilova qayta dizayni</option>
+<option>CRM tizimi integratsiyasi</option>
+<option>Web portal yangilanishi</option>
+</select>
+<span class="material-symbols-outlined text-outline absolute right-3 top-2.5 pointer-events-none text-[18px]">unfold_more</span>
+</div>
+</div>
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-lg text-label-lg text-on-surface">Mas’ul shaxs</label>
+<div class="relative">
+<select class="w-full bg-surface-container-low text-on-surface font-body-md text-body-md px-space-md py-space-sm rounded-xl appearance-none outline-none focus:ring-2 focus:ring-primary shadow-sm cursor-pointer">
+<option selected="">Madina Karimova</option>
+<option>Zilola Rahimova</option>
+<option>Sardor Aliyev</option>
+<option>Jasur Bekmirzayev</option>
+</select>
+<span class="material-symbols-outlined text-outline absolute right-3 top-2.5 pointer-events-none text-[18px]">unfold_more</span>
+</div>
+</div>
+</div>
+<!-- Row: Boshlanish va Tugash sanasi -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-lg text-label-lg text-on-surface">Boshlanish sanasi</label>
+<div class="relative flex items-center">
+<input class="w-full bg-surface-container-low text-on-surface font-body-md text-body-md px-space-md py-space-sm rounded-xl outline-none focus:ring-2 focus:ring-primary shadow-sm" type="date" value="2025-05-15"/>
+</div>
+</div>
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-lg text-label-lg text-on-surface">Tugash sanasi</label>
+<div class="relative flex items-center">
+<input class="w-full bg-surface-container-low text-on-surface font-body-md text-body-md px-space-md py-space-sm rounded-xl outline-none focus:ring-2 focus:ring-primary shadow-sm" type="date" value="2025-05-20"/>
+</div>
+</div>
+</div>
+<!-- Row: Ustuvorlik & Holat -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-lg text-label-lg text-on-surface">Ustuvorlik</label>
+<div class="relative">
+<select class="w-full bg-surface-container-low text-on-surface font-body-md text-body-md px-space-md py-space-sm rounded-xl appearance-none outline-none focus:ring-2 focus:ring-primary shadow-sm cursor-pointer">
+<option>Past</option>
+<option selected="">O‘rta</option>
+<option>Yuqori</option>
+</select>
+<span class="material-symbols-outlined text-outline absolute right-3 top-2.5 pointer-events-none text-[18px]">unfold_more</span>
+</div>
+</div>
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-lg text-label-lg text-on-surface">Holat</label>
+<div class="relative">
+<select class="w-full bg-surface-container-low text-on-surface font-body-md text-body-md px-space-md py-space-sm rounded-xl appearance-none outline-none focus:ring-2 focus:ring-primary shadow-sm cursor-pointer">
+<option selected="">Rejalashtirilgan</option>
+<option>Jarayonda</option>
+<option>Bajarilgan</option>
+</select>
+<span class="material-symbols-outlined text-outline absolute right-3 top-2.5 pointer-events-none text-[18px]">unfold_more</span>
+</div>
+</div>
+</div>
+<!-- Modal Action Buttons -->
+<div class="flex items-center justify-end gap-space-sm pt-space-md">
+<button class="px-space-lg py-space-sm rounded-xl font-label-lg text-label-lg text-on-surface-variant hover:bg-surface-container transition-colors" onclick="document.getElementById('task-modal').classList.add('hidden')" type="button">
+            Bekor qilish
+          </button>
+<button class="px-space-xl py-space-sm rounded-xl font-label-lg text-label-lg bg-primary hover:bg-primary-container text-on-primary transition-all shadow-[0_8px_18px_-4px_rgba(105,69,255,0.4)] active:scale-95" type="submit">
+            Saqlash
+          </button>
+</div>
+</form>
+</div>
+</div>
+</div>
+<script>
+  // Quick keyboard shortcut: escape closes modal
+  document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+      const modal = document.getElementById('task-modal');
+      if (modal) modal.classList.add('hidden');
+    }
+  });
+</script></main></div></body></html>

@@ -1,0 +1,43 @@
+{
+  "name": "teamflow",
+  "version": "1.0.0",
+  "private": true,
+  "description": "TeamFlow local project management application",
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "scripts": {
+    "setup": "pnpm install",
+    "dev": "concurrently --kill-others-on-fail --names frontend,backend \"pnpm --filter teamflow-frontend dev\" \"pnpm --filter teamflow-backend dev\"",
+    "dev:frontend": "pnpm --filter teamflow-frontend dev",
+    "dev:backend": "pnpm --filter teamflow-backend dev",
+    "build": "pnpm --filter teamflow-backend build && pnpm --filter teamflow-frontend build",
+    "test": "pnpm --filter teamflow-backend test && pnpm test:frontend-contract && pnpm test:dev-security",
+    "test:integration": "pnpm build && node --test tests/integration.test.mjs",
+    "test:frontend-contract": "node --import tsx --test tests/frontend-contract.test.ts",
+    "test:dev-security": "node --import tsx --test tests/dev-server-security.test.mjs",
+    "test:e2e": "playwright test",
+    "typecheck": "pnpm -r --filter \"./apps/*\" typecheck",
+    "start": "pnpm --filter teamflow-backend start",
+    "db:seed": "pnpm --filter teamflow-backend db:seed",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "check": "pnpm format:check && pnpm lint && pnpm typecheck && pnpm test"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@playwright/test": "^1.65.1",
+    "concurrently": "^9.2.1",
+    "eslint": "^10.15.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "globals": "^17.14.0",
+    "prettier": "^3.10.1",
+    "tsx": "^4.19.4",
+    "typescript-eslint": "^8.73.0",
+    "vite": "^6.0.1"
+  },
+  "packageManager": "pnpm@12.14.0"
+}

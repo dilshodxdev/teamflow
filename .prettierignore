@@ -1,0 +1,16 @@
+node_modules/
+**/node_modules/
+**/dist/
+**/*.tsbuildinfo
+coverage/
+test-results/
+playwright-report/
+apps/backend/data/
+docs/design/
+docs/screenshots/
+apps/frontend/FRONTEND_HANDOFF.md
+docs/COORDINATION_LOG.md
+docs/IMPLEMENTATION_REPORT.md
+docs/SAVE_CONFLICT_REPORT.md
+docs/MONOREPO_MIGRATION.md
+pnpm-lock.yaml
