@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
 import { Avatar } from "../ui/Avatar";
+import { Logo } from "../ui/Logo";
 
 interface HeaderProps {
   onToggleSidebar?: () => void;
@@ -22,15 +23,18 @@ export const Header: React.FC<HeaderProps> = ({ onToggleSidebar }) => {
 
   return (
     <header className="fixed top-0 left-0 lg:left-64 right-0 h-16 bg-surface-container-lowest/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-margin">
-      {/* Mobile Toggle Button */}
-      <button
-        type="button"
-        onClick={onToggleSidebar}
-        className="lg:hidden p-2 rounded-xl text-on-surface hover:bg-surface-container transition-colors"
-        aria-label="Menyu"
-      >
-        <span className="material-symbols-outlined text-[24px]">menu</span>
-      </button>
+      {/* Mobile Toggle Button & Logo */}
+      <div className="flex items-center gap-space-sm lg:hidden">
+        <button
+          type="button"
+          onClick={onToggleSidebar}
+          className="p-2 rounded-xl text-on-surface hover:bg-surface-container transition-colors"
+          aria-label="Menyu"
+        >
+          <span className="material-symbols-outlined text-[24px]">menu</span>
+        </button>
+        <Logo size="sm" />
+      </div>
 
       {/* Right Controls */}
       <div className="flex items-center gap-space-md ml-auto">

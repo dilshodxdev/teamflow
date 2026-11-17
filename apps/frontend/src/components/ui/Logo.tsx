@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
-const LOGO_URL =
-  "https://lh3.googleusercontent.com/aida/ALJJyrD-uXYbTRfirP8ZyhmkdRK31Z9Vn2xKcjiNFy7WZglPoC2RDEqOd5azxr6QrIeWKdKGwOHP3LHtakTVW5rwPWV1xO-LrXbbd81eU8LOO8UAPJNlgC1Ztw2X0frQCylMH6X7dlZp59c2JV_YvbNkIXQ3VvYB3qlckeCgKvBHLtfl61noj2ulKYc6dzVSfuvZ6u-dnIrfKfisEAEoWqM7FuE8z7YhJjNTQByhiNDyP7ta";
+const LOGO_URL = "/teamflow.png";
 
 interface LogoProps {
   className?: string;
@@ -16,8 +15,9 @@ export const Logo: React.FC<LogoProps> = ({
 }) => {
   const [imageError, setImageError] = useState(false);
 
-  const imgSizeClass =
-    size === "sm" ? "w-6 h-6" : size === "lg" ? "w-10 h-10" : "w-8 h-8";
+  const heightClass = size === "sm" ? "h-8" : size === "lg" ? "h-14" : "h-10";
+  const iconBoxSize =
+    size === "sm" ? "w-8 h-8" : size === "lg" ? "w-12 h-12" : "w-10 h-10";
   const textSizeClass =
     size === "sm"
       ? "font-headline-md text-headline-md"
@@ -28,25 +28,40 @@ export const Logo: React.FC<LogoProps> = ({
   return (
     <div className={`flex items-center gap-space-sm ${className}`}>
       {!imageError ? (
-        <img
-          src={LOGO_URL}
-          alt="TeamFlow Logo"
-          onError={() => setImageError(true)}
-          className={`${imgSizeClass} object-contain rounded-xl shadow-sm`}
-        />
+        showText ? (
+          <img
+            src={LOGO_URL}
+            alt="TeamFlow Logo"
+            onError={() => setImageError(true)}
+            className={`${heightClass} w-auto object-contain select-none`}
+          />
+        ) : (
+          <div
+            className={`${iconBoxSize} overflow-hidden rounded-xl select-none flex-shrink-0 flex items-center justify-start`}
+          >
+            <img
+              src={LOGO_URL}
+              alt="TeamFlow"
+              onError={() => setImageError(true)}
+              className="h-full w-auto max-w-none object-cover object-left"
+            />
+          </div>
+        )
       ) : (
-        <div
-          className={`${imgSizeClass} rounded-xl bg-gradient-to-tr from-primary to-primary-container flex items-center justify-center text-white shadow-sm font-bold text-xs`}
-        >
-          TF
-        </div>
-      )}
-      {showText && (
-        <span
-          className={`${textSizeClass} tracking-tight text-on-surface font-bold select-none`}
-        >
-          TeamFlow
-        </span>
+        <>
+          <div
+            className={`${iconBoxSize} rounded-xl bg-gradient-to-tr from-primary to-primary-container flex items-center justify-center text-white shadow-sm font-bold text-xs flex-shrink-0`}
+          >
+            TF
+          </div>
+          {showText && (
+            <span
+              className={`${textSizeClass} tracking-tight text-on-surface font-bold select-none`}
+            >
+              TeamFlow
+            </span>
+          )}
+        </>
       )}
     </div>
   );

@@ -15,7 +15,7 @@ Git sozlamalari faqat ushbu repository uchun lokal o‘rnatilgan:
 | Sohiba       | `feature/tasks-team`         | Vazifalar, Jamoa, Risklar      |
 | Maftuna      | `docs/project-management`    | Hujjatlar, talablar, testlash  |
 
-Branchlar bitta tekshirilgan lokal boshlang‘ich commitdan yaratiladi. Ishlash uchun kerakli branchga `git switch feature/backend` kabi buyruq bilan o‘ting. Integratsiya `develop`da qilinadi. Remote sozlash hech qanday faylni GitHub’ga yubormaydi; push yoki remote branch yaratish bajarilmagan.
+Branchlar bitta tekshirilgan boshlang‘ich commitdan yaratilgan. Ishlash uchun kerakli branchga `git switch feature/backend` kabi buyruq bilan o‘ting. Integratsiya `develop`da qilinadi. Joriy loyiha va ishga tushirish qo‘llanmasi `develop`da saqlanadi; feature branchlar boshlang‘ich bazadan rivojlantiriladi.
 
 ## Kod tekshiruvlari
 

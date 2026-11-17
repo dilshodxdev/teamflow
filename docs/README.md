@@ -19,10 +19,44 @@ TEAMFLOW/
 
 ## Ishga tushirish
 
-Terminalni loyiha ildizida oching. `pnpm --version` 12.14.0 bo‘lishi kerak; o‘rnatish usullari [pnpm hujjatlarida](https://pnpm.io/installation).
+Node.js 22.13+ va pnpm 12.14.0 kerak. pnpm o‘rnatilmagan bo‘lsa:
 
 ```sh
+npm install --global pnpm@12.14.0
+```
+
+Yangi kompyuterda loyihani olish va dependencylarni o‘rnatish:
+
+```sh
+git clone --branch develop https://github.com/dilshodxdev/teamflow.git
+cd teamflow
 pnpm install --frozen-lockfile
+```
+
+PowerShell’da lokal konfiguratsiyani yarating. Mavjud `.env` fayli saqlanadi:
+
+```powershell
+if (!(Test-Path apps/backend/.env)) {
+  Copy-Item apps/backend/.env.example apps/backend/.env
+}
+```
+
+`apps/backend/.env` faylida demo admin uchun quyidagi qiymatlarni belgilang:
+
+```dotenv
+PORT=4000
+NODE_ENV=development
+FRONTEND_URL=http://localhost:5173
+DATABASE_PATH=./data/teamflow.db
+SESSION_TTL_HOURS=24
+DEMO_MANAGER_EMAIL=dilshodxdev@gmail.com
+DEMO_MANAGER_PASSWORD=123456789
+```
+
+Keyin demo hisob va ma’lumotlarni yaratib, ikkala ilovani ishga tushiring:
+
+```sh
+pnpm db:seed
 pnpm dev
 ```
 
@@ -32,7 +66,18 @@ pnpm dev
 
 Faqat bitta ilovani ishga tushirish: `pnpm dev:frontend` yoki `pnpm dev:backend`. Dependencylar loyiha ildizidan boshqariladi. `pnpm run setup` ham `pnpm install`ni bajaradi.
 
-Demo ma’lumotlari kerak bo‘lsa, `pnpm db:seed` bajaring. Seed mavjud bazani tozalamaydi va mavjud parollarni almashtirmaydi. Lokal baza `apps/backend/data/teamflow.db`, generatsiya qilingan kirish ma’lumotlari `apps/backend/data/demo-credentials.json`da saqlanadi. Ikkalasi Gitdan chiqarilgan. Maxsus `DATABASE_PATH` backend katalogiga nisbatan yechiladi; uning credential fayli shu baza yonida bo‘ladi.
+Loyiha allaqachon sozlangan bo‘lsa, rootdan `pnpm dev` yetarli. Seed mavjud bazani tozalamaydi va mavjud parollarni almashtirmaydi. Yuqoridagi `.env` qiymatlari yangi bazadagi hisobni yaratish uchun ishlatiladi.
+
+Lokal baza `apps/backend/data/teamflow.db`, avtomatik generatsiya qilingan kirish ma’lumotlari `apps/backend/data/demo-credentials.json`da saqlanadi. `.env`, baza va lokal credential fayli Gitga yuklanmaydi. Maxsus `DATABASE_PATH` backend katalogiga nisbatan yechiladi; uning credential fayli shu baza yonida bo‘ladi.
+
+## Admin bilan kirish
+
+- Kirish sahifasi: http://localhost:5173/login
+- Login (email): **`dilshodxdev@gmail.com`**
+- Parol: **`123456789`**
+- Ruxsat: **manager (admin)**
+
+Admin loyihalar, vazifalar, jamoa va risklarni boshqaradi. Yangi ro‘yxatdan o‘tgan foydalanuvchilar manager tasdiqlaguncha `pending` holatida qoladi.
 
 ## Tekshirish va production
 
